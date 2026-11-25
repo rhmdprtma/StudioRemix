@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>StudioRemix - by Tama-ID</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;-webkit-tap-highlight-color:transparent}
 body{background:#080810;color:#fff;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(500px 350px at 0% 0%,#7c3aed66,transparent),radial-gradient(500px 350px at 100% 20%,#ec489966,transparent),radial-gradient(500px 400px at 50% 100%,#06b6d466,transparent)}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(500px 350px at 0% 0%,#7c3aed66,transparent),radial-gradient(500px 350px at 100% 20%,#ec489966,transparent)}
 .app{position:relative;z-index:1;max-width:440px;margin:auto;padding:14px 14px 80px}
 .top{display:flex;justify-content:space-between;align-items:center;padding:6px 2px 14px}
 .logo{font-weight:800;font-size:22px}.logo i{font-style:normal;background:linear-gradient(90deg,#a78bfa,#f472b6,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .badge{background:#ffffff14;border:1px solid #ffffff25;padding:6px 11px;border-radius:99px;font-size:11px;font-weight:700}
-.card{background:linear-gradient(180deg,#ffffff16,#ffffff07);border:1px solid #ffffff20;backdrop-filter:blur(18px);border-radius:26px;padding:14px;box-shadow:0 20px 50px #000a}
+.card{background:linear-gradient(180deg,#ffffff16,#ffffff07);border:1px solid #ffffff20;backdrop-filter:blur(18px);border-radius:26px;padding:14px}
 .btn{width:100%;border:0;border-radius:14px;padding:13px;font-weight:800;font-size:14px;cursor:pointer}
 .btn-dark{background:#1b1b2e;color:#fff;border:1px solid #ffffff22}
-.btn-grad{background:linear-gradient(90deg,#38bdf8,#818cf8,#e879f9);color:#fff;margin-top:10px;box-shadow:0 10px 30px #818cf855}
-h3{font-size:14px;margin:18px 2px 8px;display:flex;justify-content:space-between;align-items:center}
-h3 span{opacity:.6;font-weight:400}
+.btn-grad{background:linear-gradient(90deg,#38bdf8,#818cf8,#e879f9);color:#fff;margin-top:10px}
+h3{font-size:14px;margin:18px 2px 8px;display:flex;justify-content:space-between}
 .switch{width:48px;height:28px;background:#334155;border-radius:99px;position:relative;cursor:pointer;flex-shrink:0}
 .switch::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:.2s}
 .switch.on{background:#22c55e}.switch.on::after{left:23px}
-.reset{font-size:18px;cursor:pointer;opacity:.8}
+.reset{font-size:18px;cursor:pointer}
 .eqTop{display:flex;justify-content:space-between;align-items:center}
 .eqGrid{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;margin-top:6px}
 .eqCol{display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -29,21 +28,25 @@ h3 span{opacity:.6;font-weight:400}
 .eqNote{font-size:11px;color:#94a3b8;line-height:1.5;margin-top:10px}
 .filterBox{margin-top:12px}
 .filterHead{display:flex;justify-content:space-between;font-size:11px;color:#94a3b8;margin-bottom:8px}
-.filterTrack{position:relative;height:34px;background:#0b0b18;border:1px solid #ffffff20;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#94a3b8}
-.filterKnob{position:absolute;top:3px;left:50%;transform:translateX(-50%);width:26px;height:26px;background:#fff;border-radius:7px;box-shadow:0 4px 12px #000;cursor:grab}
+.filterTrack{position:relative;height:38px;background:#0b0b18;border:1px solid #ffffff20;border-radius:12px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#94a3b8;touch-action:none}
+.filterKnob{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:28px;height:30px;background:#fff;border-radius:8px;box-shadow:0 4px 14px #000;cursor:grab;z-index:2}
+.filterVal{text-align:center;font-size:11px;margin-top:6px;color:#fff;font-weight:600}
 
-/* === IPHONE BENERAN - KACA / FROSTED GLASS === */
+/* === IPHONE BENERAN - BENTUKNYA UDAH DIPERBAIKI === */
 .iphone{
-  position:relative;overflow:hidden;border-radius:32px;
+  position:relative;overflow:hidden;
+  /* INI KUNCINYA: bulatnya gede, pendek, gak kepanjangan */
+  border-radius:36px;
   width:100%;max-width:340px;margin:0 auto;
-  aspect-ratio:9/14.2;max-height:600px;
-  background:rgba(255,255,255,0.14);
+  /* dulu 9/14.2 kepanjangan, sekarang 9/13 biar AirPlay gak kepotong */
+  aspect-ratio:9/13.2;
+  background:rgba(255,255,255,0.12);
   backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
-  border:1px solid rgba(255,255,255,0.28);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 30px 70px rgba(0,0,0,.55);
-  display:flex;flex-direction:column;padding:16px 16px 14px;
+  border:1px solid rgba(255,255,255,0.30);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 30px 70px rgba(0,0,0,.6);
+  display:flex;flex-direction:column;padding:15px 15px 13px;
 }
-.iphoneBg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(35px) brightness(.55) saturate(1.3);transform:scale(1.1);z-index:0}
+.iphoneBg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(35px) brightness(.55) saturate(1.4);z-index:0}
 .iphone > *{position:relative;z-index:2}
 .cover{
   border-radius:14px;overflow:hidden;aspect-ratio:1/1;
@@ -51,29 +54,28 @@ h3 span{opacity:.6;font-weight:400}
   box-shadow:0 12px 28px rgba(0,0,0,.35);cursor:pointer;flex-shrink:0;
 }
 .cover img{width:100%;height:100%;object-fit:cover;display:none}
-.cover .ph{font-size:52px;text-align:center}.cover .ph small{display:block;font-size:12px;margin-top:8px;opacity:.85;font-family:'Plus Jakarta Sans',sans-serif}
-.playerInfo{display:flex;align-items:center;gap:10px;margin-top:14px;padding:0 2px}
+.cover .ph{font-size:52px;text-align:center}.cover .ph small{display:block;font-size:12px;margin-top:8px;opacity:.85}
+.playerInfo{display:flex;align-items:center;gap:10px;margin-top:13px;padding:0 2px}
 .playerInfo .txt{flex:1;min-width:0}
-.playerInfo .title{font-size:15.5px;font-weight:700;letter-spacing:-.1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff}
-.playerInfo .artist{font-size:13px;font-weight:500;color:rgba(255,255,255,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px;text-transform:uppercase;letter-spacing:.2px}
-.vizMini{width:36px;height:22px;flex-shrink:0;opacity:.95}
-.timeRow{display:flex;justify-content:space-between;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.70);margin:10px 2px 0}
-.progress{height:4px;background:rgba(255,255,255,.22);border-radius:99px;margin:5px 2px 0;overflow:hidden}
+.playerInfo .title{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff}
+.playerInfo .artist{font-size:12.5px;font-weight:500;color:rgba(255,255,255,.68);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;text-transform:uppercase}
+.vizMini{width:36px;height:22px;flex-shrink:0}
+.timeRow{display:flex;justify-content:space-between;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.72);margin:9px 2px 0}
+.progress{height:4px;background:rgba(255,255,255,.25);border-radius:99px;margin:5px 2px 0;overflow:hidden}
 #prog{height:100%;width:0%;background:#fff;border-radius:99px}
-/* TOMBOL IPHONE BENERAN: 10 DETIK - PAUSE - 10 DETIK */
-.iphoneControls{display:flex;align-items:center;justify-content:center;gap:36px;padding:14px 0 2px}
-.iphoneControls button{background:transparent;border:0;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.skip10{width:38px;height:38px;border:2px solid #fff;border-radius:50%;font-size:11px;font-weight:800;position:relative;letter-spacing:-.5px}
-.skip10::after{content:'↺';position:absolute;top:-9px;font-size:9px}
-.skip10.fwd::after{content:'↻'}
-.pauseBtn{font-size:34px;font-weight:700;letter-spacing:-2px;line-height:1}
-.volRow{display:flex;align-items:center;gap:10px;padding:14px 2px 0;max-width:320px;margin:0 auto;width:100%}
-.volRow span{font-size:14px;opacity:.85}
+/* TOMBOL 10 DETIK BENERAN - ADA BULET + PANAHNYA */
+.iphoneControls{display:flex;align-items:center;justify-content:center;gap:34px;padding:13px 0 2px}
+.iphoneControls button{background:transparent;border:0;color:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.skip10{width:40px;height:40px;border:2.2px solid #fff;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center}
+.skip10 b{font-size:12px;font-weight:800;letter-spacing:-.5px}
+.skip10 i{position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-style:normal;font-size:12px;background:transparent}
+.pauseBtn{font-size:32px;font-weight:700;letter-spacing:-1px;line-height:1;padding:0 4px}
+.volRow{display:flex;align-items:center;gap:10px;padding:13px 2px 0;max-width:320px;margin:0 auto;width:100%}
+.volRow span{font-size:13px;opacity:.9}
 .volRow input{flex:1;-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.35);outline:none}
-.volRow input::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.4);cursor:pointer}
-.volRow input::-moz-range-thumb{width:22px;height:22px;background:#fff;border:none;border-radius:50%}
-.pillRow{display:flex;justify-content:center;margin-top:16px}
-.pill{background:rgba(255,255,255,.16);border:0;padding:7px 16px;border-radius:99px;font-size:12.5px;font-weight:500;color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(10px)}
+.volRow input::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.pillRow{display:flex;justify-content:center;margin-top:14px;padding-bottom:2px}
+.pill{background:rgba(255,255,255,.18);border:0;padding:7px 16px;border-radius:99px;font-size:12.5px;font-weight:500;color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .row{display:flex;justify-content:space-between;align-items:center;padding:12px 2px;border-bottom:1px solid #ffffff10;font-size:13px;gap:10px}
 .row label{color:#cbd5e1;flex-shrink:0}
 select,input[type=number]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:9px 10px;min-width:135px;text-align:right;outline:none}
@@ -87,24 +89,22 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
 <body>
 <div class="app">
 <div class="top"><div class="logo">Studio<i>Remix</i> 🎧</div><div class="badge">✨ PRO • by Tama-ID</div></div>
-
 <div class="card">
   <button class="btn btn-dark" onclick="document.getElementById('audioIn').click()">+ Upload Song</button>
   <input type="file" id="audioIn" accept="audio/*" hidden>
   <button class="btn btn-grad" id="renderBtn">● Render Video</button>
 </div>
-
 <h3>Ekualiser <span>▲</span></h3>
 <div class="card">
   <div class="eqTop"><b style="font-size:14px">Ekualiser</b><div style="display:flex;gap:12px;align-items:center"><div class="switch on" id="eqSwitch" onclick="this.classList.toggle('on')"></div><span class="reset" onclick="resetEQ()">↺</span></div></div>
   <div class="eqGrid" id="eq"></div>
-  <p class="eqNote">Geser ke kiri = Low Pass (suara teredam), ke kanan = High Pass (bass hilang). Ketuk dua kali di jalur untuk kembali ke tengah.</p>
+  <p class="eqNote">Geser ke kiri = Low Pass (suara teredam), ke kanan = High Pass (bass hilang).</p>
   <div class="filterBox">
-    <div class="filterHead"><span>Filter:</span><span>FILTER &nbsp; ›</span></div>
-    <div class="filterTrack"><span>LOW PASS</span><span>HIGH PASS</span><div class="filterKnob" id="filterKnob"></div></div>
+    <div class="filterHead"><span>Filter:</span><span id="filterLabel">FILTER • NETRAL ›</span></div>
+    <div class="filterTrack" id="filterTrack"><span>LOW PASS</span><span>HIGH PASS</span><div class="filterKnob" id="filterKnob"></div></div>
+    <div class="filterVal" id="filterVal">Tengah = Suara Normal • Geser untuk efek</div>
   </div>
 </div>
-
 <h3>Preview iPhone</h3>
 <div class="iphone" id="stage">
   <div class="iphoneBg" id="bgBlur"></div>
@@ -114,31 +114,29 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
   <input type="file" id="imgIn" accept="image/*" hidden>
   <div class="playerInfo">
     <div class="txt">
-      <div class="title" id="titleView">DJ ONTHEMIX SAKIT SUNGGUH SAKIT</div>
+      <div class="title" id="titleView">DJ ONTHEMIX</div>
       <div class="artist" id="artistView">DJ RAHMAD PRATAMA</div>
     </div>
     <canvas class="vizMini" id="vizMini" width="36" height="22"></canvas>
   </div>
-  <div class="timeRow"><span id="cur">0:00</span><span id="dur">-0:39</span></div>
+  <div class="timeRow"><span id="cur">0:00</span><span id="dur">-0:54</span></div>
   <div class="progress"><div id="prog"></div></div>
   <div class="iphoneControls">
-    <button class="skip10" id="prevBtn">10</button>
+    <button id="prevBtn"><span class="skip10"><i>↺</i><b>10</b></span></button>
     <button class="pauseBtn" id="playBtn">❚❚</button>
-    <button class="skip10 fwd" id="nextBtn">10</button>
+    <button id="nextBtn"><span class="skip10"><i>↻</i><b>10</b></span></button>
   </div>
   <div class="volRow"><span>🔈</span><input type="range" id="vol" min="0" max="100" value="90"><span>🔊</span></div>
   <div class="pillRow"><button class="pill" onclick="toast('AirPlay - Cari perangkat...')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l7-7 7 7"/><rect x="2" y="14" width="20" height="6" rx="2"/></svg> AirPlay</button></div>
 </div>
-
 <div class="card" style="margin-top:14px">
-  <div class="row"><label>Judul Lagu</label><input type="text" id="titleIn" value="DJ Rahmad Pratama - Sakit Sungguh Sakit"></div>
+  <div class="row"><label>Judul Lagu</label><input type="text" id="titleIn" value="DJ ONTHEMIX"></div>
   <div class="row"><label>Nama Artist</label><input type="text" id="artistIn" value="DJ RAHMAD PRATAMA"></div>
   <canvas id="wave"></canvas>
   <div class="flex" style="margin-top:10px"><button class="chip" onclick="playPart()">▶ Putar Bagian</button><button class="chip" onclick="setStart()">Mulai di sini</button><button class="chip" onclick="setEnd()">Akhir di sini</button></div>
   <div class="row"><label>Mulai (detik)</label><input type="number" id="startIn" value="0"></div>
   <div class="row"><label>Sampai (detik)</label><input type="number" id="endIn" value="30"></div>
 </div>
-
 <h3>Pengaturan Video</h3>
 <div class="card">
   <div class="row"><label>Resolusi</label><select id="res"><option>480p</option><option selected>720p (HD)</option><option>1080p</option></select></div>
@@ -146,9 +144,7 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
   <div class="row"><label>FPS</label><select><option>24</option><option selected>30</option><option>60</option></select></div>
   <div class="row"><label>Visualizer</label><select id="vizSel"><option>iOS (5 Batang)</option><option>Wave</option><option>Circle</option></select></div>
   <div class="row"><label>Latar</label><select><option>Blur Cover</option><option>Hitam Pekat</option><option>Gradient Neon</option></select></div>
-  <div class="row"><label>Effect Visual</label><div class="flex"><button class="chip on">Kilau Cover</button><button class="chip">Partikel</button></div></div>
 </div>
-
 <h3>Efek Suara</h3>
 <div class="card">
   <div class="row"><label>Kecepatan</label><select id="speed" onchange="setSpeed()"><option value="0.75">0.75x</option><option value="1" selected>1x (normal)</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option></select></div>
@@ -156,25 +152,58 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
   <div class="row"><label>Reverb</label><select><option>Mati</option><option>Ruangan</option><option>Hall</option></select></div>
   <div class="row"><label>Reverb Mix (%)</label><input type="number" value="30"></div>
   <div class="row"><label>Efek 8D (putar)</label><div class="switch" onclick="this.classList.toggle('on')"></div></div>
-  <div class="row"><label>Kecepatan Putar 8D</label><select><option>Sedang (10 dtk)</option><option>Lambat</option><option>Cepat</option></select></div>
-  <div class="row"><label>Arah Putar</label><select><option>Searah jarum jam</option><option>Berlawanan</option></select></div>
 </div>
 <p style="text-align:center;font-size:11px;color:#64748b;margin-top:18px">StudioRemix • by Tama-ID</p>
 </div>
 <div class="toast" id="toast"></div>
 <script>
-let audioCtx,srcNode,filters=[],gainNode,analyser,audioEl=new Audio();
+let audioCtx,srcNode,filters=[],gainNode,analyser,audioEl=new Audio(),lowpass,highpass;
 const freqs=[60,150,400,1000,2000,4000,8000,16000];
 const eqDiv=document.getElementById('eq');
 freqs.forEach((f,i)=>{let d=document.createElement('div');d.className='eqCol';d.innerHTML=`<span id="eqVal${i}">+0,0</span><input type="range" min="-12" max="12" step="0.5" value="0" oninput="setEQ(${i},this.value)"><b>${f>=1000?f/1000+'K':f}</b>`;eqDiv.appendChild(d)});
 function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2000)}
-function initAudio(){if(audioCtx)return;audioCtx=new (window.AudioContext||window.webkitAudioContext)();srcNode=audioCtx.createMediaElementSource(audioEl);analyser=audioCtx.createAnalyser();analyser.fftSize=256;gainNode=audioCtx.createGain();gainNode.gain.value=.9;let last=srcNode;freqs.forEach(f=>{let b=audioCtx.createBiquadFilter();b.type='peaking';b.frequency.value=f;b.Q.value=1;filters.push(b);last.connect(b);last=b});last.connect(gainNode);gainNode.connect(analyser);analyser.connect(audioCtx.destination)}
+function initAudio(){
+  if(audioCtx)return;
+  audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  srcNode=audioCtx.createMediaElementSource(audioEl);
+  analyser=audioCtx.createAnalyser();analyser.fftSize=256;
+  gainNode=audioCtx.createGain();gainNode.gain.value=.9;
+  // === FILTER BENERAN - INI YANG TADI GAK ADA ===
+  lowpass=audioCtx.createBiquadFilter();lowpass.type='lowpass';lowpass.frequency.value=20000;lowpass.Q.value=0.7;
+  highpass=audioCtx.createBiquadFilter();highpass.type='highpass';highpass.frequency.value=20;highpass.Q.value=0.7;
+  let last=srcNode;
+  last.connect(lowpass);last=lowpass;last.connect(highpass);last=highpass;
+  freqs.forEach(f=>{let b=audioCtx.createBiquadFilter();b.type='peaking';b.frequency.value=f;b.Q.value=1;filters.push(b);last.connect(b);last=b});
+  last.connect(gainNode);gainNode.connect(analyser);analyser.connect(audioCtx.destination);
+}
+// === FUNGSI LOW PASS / HIGH PASS BENERAN ===
+function applyFilter(pos){ // pos -100 (low) sampai +100 (high)
+  if(!audioCtx) return;
+  if(pos < -5){
+    // Geser ke kiri = LOW PASS, frekuensi diturunin, suara jadi mendem / bass doang
+    let t = Math.abs(pos)/100; // 0-1
+    lowpass.frequency.value = 20000 * Math.pow(0.02, t); // 20000 -> 400 Hz
+    highpass.frequency.value = 20;
+    document.getElementById('filterLabel').textContent='FILTER • LOW PASS ›';
+    document.getElementById('filterVal').textContent='LOW PASS - Suara mendem, treble hilang, bass nendang';
+  } else if(pos > 5){
+    let t = pos/100;
+    highpass.frequency.value = 20 * Math.pow(50, t); // 20 -> 1000 Hz
+    lowpass.frequency.value = 20000;
+    document.getElementById('filterLabel').textContent='FILTER • HIGH PASS ›';
+    document.getElementById('filterVal').textContent='HIGH PASS - Bass hilang, suara cempreng / tipis';
+  } else {
+    lowpass.frequency.value=20000; highpass.frequency.value=20;
+    document.getElementById('filterLabel').textContent='FILTER • NETRAL ›';
+    document.getElementById('filterVal').textContent='Tengah = Suara Normal • Geser untuk efek';
+  }
+}
 function setEQ(i,v){document.getElementById('eqVal'+i).textContent=(v>=0?'+':'')+Number(v).toFixed(1).replace('.',',');if(filters[i])filters[i].gain.value=Number(v)}
-function resetEQ(){document.querySelectorAll('#eq input').forEach((e,i)=>{e.value=0;setEQ(i,0)});toast('Equalizer direset')}
+function resetEQ(){document.querySelectorAll('#eq input').forEach((e,i)=>{e.value=0;setEQ(i,0)});applyFilter(0);let k=document.getElementById('filterKnob');k.style.left='50%';toast('Equalizer + Filter direset')}
 function setSpeed(){audioEl.playbackRate=parseFloat(document.getElementById('speed').value)}
 document.getElementById('audioIn').onchange=e=>{let f=e.target.files[0];if(!f)return;audioEl.src=URL.createObjectURL(f);initAudio();document.getElementById('titleIn').value=f.name.replace('.mp3','');syncTitle();audioEl.onloadedmetadata=()=>{document.getElementById('dur').textContent='-'+fmt(audioEl.duration);document.getElementById('endIn').value=Math.min(30,Math.floor(audioEl.duration));drawWave()};toast('Lagu dimuat: '+f.name)};
 document.getElementById('imgIn').onchange=e=>{let f=e.target.files[0];if(!f)return;let u=URL.createObjectURL(f);let img=document.getElementById('coverImg');img.src=u;img.style.display='block';document.getElementById('ph').style.display='none';document.getElementById('bgBlur').style.backgroundImage=`url(${u})`;toast('Foto dimuat ✓')};
-function syncTitle(){document.getElementById('titleView').textContent=document.getElementById('titleIn').value;document.getElementById('artistView').textContent=document.getElementById('artistIn').value.toUpperCase()}
+function syncTitle(){document.getElementById('titleView').textContent=document.getElementById('titleIn').value.toUpperCase();document.getElementById('artistView').textContent=document.getElementById('artistIn').value.toUpperCase()}
 document.getElementById('titleIn').oninput=syncTitle;document.getElementById('artistIn').oninput=syncTitle;
 document.getElementById('playBtn').onclick=()=>{initAudio();audioCtx.resume();if(audioEl.paused){audioEl.play();document.getElementById('playBtn').textContent='❚❚'}else{audioEl.pause();document.getElementById('playBtn').textContent='▶'}};
 document.getElementById('prevBtn').onclick=()=>audioEl.currentTime=Math.max(0,audioEl.currentTime-10);
@@ -190,8 +219,20 @@ drawWave();
 let mini=document.getElementById('vizMini'),mctx=mini.getContext('2d');
 function drawMini(){requestAnimationFrame(drawMini);mctx.clearRect(0,0,36,22);let d=new Uint8Array(64);if(analyser)analyser.getByteFrequencyData(d);else for(let i=0;i<64;i++)d[i]=Math.random()*25;for(let i=0;i<4;i++){let h=4+d[i*10]/10;let x=3+i*9;mctx.fillStyle='#fff';mctx.beginPath();mctx.roundRect(x,22-h,5,h,3);mctx.fill()}}
 drawMini();
-let knob=document.getElementById('filterKnob'),drag=false;
-knob.onpointerdown=()=>drag=true;window.onpointerup=()=>drag=false;
-window.onpointermove=e=>{if(!drag)return;let r=knob.parentElement.getBoundingClientRect();let x=Math.max(10,Math.min(r.width-36,e.clientX-r.left));knob.style.left=x+'px'};
-document.getElementById('renderBtn').onclick=()=>toast('Render jalan... (versi demo, upload dulu lagunya bung!)');
+// === KNOB FILTER SEKARANG BENERAN NYAMBUNG KE SUARA ===
+let knob=document.getElementById('filterKnob'),track=document.getElementById('filterTrack'),drag=false;
+function moveFilter(e){
+  let r=track.getBoundingClientRect();
+  let x=Math.max(14,Math.min(r.width-42,e.clientX-r.left));
+  knob.style.left=x+'px';
+  let pos=((x-14)/(r.width-56)-0.5)*200; // -100 sampai +100
+  applyFilter(pos);
+}
+knob.onpointerdown=e=>{drag=true;knob.setPointerCapture(e.pointerId)};
+track.onpointerdown=e=>{drag=true;moveFilter(e)};
+window.onpointermove=e=>{if(!drag)return;moveFilter(e)};
+window.onpointerup=()=>drag=false;
+// Double klik track = balik ke tengah
+track.ondblclick=()=>{knob.style.left='50%';applyFilter(0)};
+document.getElementById('renderBtn').onclick=()=>toast('Render jalan... upload dulu lagunya bung!');
 </script></body></html>
