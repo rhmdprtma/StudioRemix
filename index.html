@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>XPICK REMIX - Music Video Maker</title>
+<title>StudioRemix - Music Video Maker</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Anton&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif}
-body{background:#07070f;color:#fff;min-height:100vh;overflow-x:hidden}
+body{background:#07070f;color:#fff;min-height:100vh}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(600px 400px at 10% 0%,#7c3aed55,transparent),radial-gradient(600px 400px at 90% 20%,#ec489955,transparent),radial-gradient(500px 400px at 50% 100%,#06b6d455,transparent);z-index:0}
 .app{position:relative;z-index:1;max-width:480px;margin:auto;padding:16px 14px 90px}
 .top{display:flex;justify-content:space-between;align-items:center;margin:6px 2px 14px}
@@ -19,13 +19,13 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(600px 
 .btn-grad{background:linear-gradient(90deg,#38bdf8,#818cf8,#e879f9);color:#fff;box-shadow:0 10px 30px #818cf855}
 .btn:active{transform:scale(.98)}
 .warn{background:#ff3b3018;border:1px solid #ff3b3044;color:#ffb4ad;font-size:11px;line-height:1.5;padding:10px 12px;border-radius:14px;margin:14px 0}
-/* Preview */
 .stage{position:relative;overflow:hidden;border-radius:20px;aspect-ratio:9/16;max-height:520px;background:#0b0b18;display:flex;flex-direction:column;justify-content:flex-end}
 .stage.landscape{aspect-ratio:16/9;max-height:280px}
 #bgBlur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(28px) brightness(.6);transform:scale(1.2)}
-#coverWrap{position:relative;z-index:2;margin:18px 18px 8px;border-radius:18px;overflow:hidden;aspect-ratio:1/1;background:linear-gradient(135deg,#312e81,#be185d);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px #000a}
+#coverWrap{position:relative;z-index:2;margin:18px 18px 8px;border-radius:18px;overflow:hidden;aspect-ratio:1/1;background:linear-gradient(135deg,#312e81,#be185d);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px #000a;cursor:pointer}
 #coverWrap img{width:100%;height:100%;object-fit:cover;display:none}
-#coverWrap .ph{font-size:58px;opacity:.8}
+#coverWrap .ph{font-size:58px;opacity:.8;text-align:center}
+#coverWrap .ph small{display:block;font-size:11px;margin-top:6px}
 #viz{position:absolute;left:0;right:0;bottom:0;height:120px;z-index:3;pointer-events:none}
 .meta{position:relative;z-index:4;padding:0 16px 10px}
 .meta input{background:transparent;border:0;border-bottom:1px dashed #ffffff44;color:#fff;width:100%;outline:none;font-weight:800;font-size:20px;padding:4px 0}
@@ -36,18 +36,18 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(600px 
 .controls{display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 0 14px;position:relative;z-index:4}
 .cbtn{width:48px;height:48px;border-radius:50%;border:0;background:#ffffff1a;color:#fff;font-size:18px;cursor:pointer}
 .cbtn.play{width:62px;height:62px;background:#fff;color:#000;font-size:22px;box-shadow:0 0 0 6px #ffffff22}
-.pill{display:inline-flex;align-items:center;gap:6px;background:#00000055;border:1px solid #ffffff22;padding:7px 12px;border-radius:99px;font-size:12px;margin:0 auto}
+.pill{display:inline-flex;align-items:center;gap:6px;background:#00000055;border:1px solid #ffffff22;padding:7px 12px;border-radius:99px;font-size:12px}
 .pillRow{display:flex;justify-content:center;padding-bottom:12px;position:relative;z-index:4}
-/* Settings */
 h3{font-size:15px;margin:18px 2px 10px}
-.row{display:flex;justify-content:space-between;align-items:center;padding:11px 4px;border-bottom:1px solid #ffffff10;font-size:13px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:11px 4px;border-bottom:1px solid #ffffff10;font-size:13px;gap:10px}
 .row label{color:#cbd5e1}
-select,input[type=number],input[type=text]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:8px 10px;min-width:130px;text-align:right;outline:none}
+select,input[type=number]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:8px 10px;min-width:130px;text-align:right;outline:none}
 input[type=range]{width:100%;accent-color:#a78bfa}
-.eq{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:8px}
-.eqCol{display:flex;flex-direction:column;align-items:center;gap:6px}
-.eqCol input{writing-mode:vertical-lr;direction:rtl;height:110px;width:26px;accent-color:#22d3ee}
-.eqCol b{font-size:10px;color:#94a3b8}.eqCol span{font-size:11px;font-weight:700}
+/* FIX EQUALIZER - 8 kolom pas, gak jatoh lagi */
+.eq{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:8px}
+.eqCol{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.eqCol input{writing-mode:vertical-lr;direction:rtl;height:110px;width:22px;accent-color:#22d3ee}
+.eqCol b{font-size:10px;color:#94a3b8}.eqCol span{font-size:10px;font-weight:700;white-space:nowrap}
 canvas#wave{width:100%;height:64px;background:#00000055;border-radius:12px;margin-top:8px}
 .chip{padding:8px 12px;border-radius:99px;border:1px solid #ffffff22;background:#ffffff10;color:#fff;font-size:12px;cursor:pointer}
 .chip.on{background:#fff;color:#000;font-weight:800}
@@ -60,7 +60,7 @@ canvas#wave{width:100%;height:64px;background:#00000055;border-radius:12px;margi
 </head>
 <body>
 <div class="app">
-  <div class="top"><div class="logo">XPICK<span>REMIX</span> 🎧</div><div class="badge">✨ PRO • v2</div></div>
+  <div class="top"><div class="logo">Studio<span>Remix</span> 🎧</div><div class="badge">✨ PRO • v2</div></div>
 
   <div class="card">
     <button class="btn btn-dark" onclick="document.getElementById('audioIn').click()">+ Upload Song</button>
@@ -69,17 +69,16 @@ canvas#wave{width:100%;height:64px;background:#00000055;border-radius:12px;margi
     <button class="btn btn-grad" id="renderBtn">● Render Video</button>
     <div class="warn">⚠️ Tips: Render di 720p / 30fps biar gak berat. Jangan tutup layar saat render.</div>
 
-    <!-- PREVIEW -->
     <div class="stage" id="stage">
       <div id="bgBlur"></div>
       <div id="coverWrap" onclick="document.getElementById('imgIn').click()">
-        <img id="coverImg"><div class="ph" id="ph">🎵<div style="font-size:11px;margin-top:6px">Tap untuk ganti foto</div></div>
+        <img id="coverImg"><div class="ph" id="ph">🎵<small>Tap untuk ganti foto</small></div>
       </div>
       <input type="file" id="imgIn" accept="image/*" hidden>
       <canvas id="viz" width="480" height="120"></canvas>
       <div class="meta">
-        <input id="titleIn" value="DJ BANG JONO - Levi">
-        <input class="artist" id="artistIn" value="Xpick Remix">
+        <input id="titleIn" value="Judul Lagu - Remix">
+        <input class="artist" id="artistIn" value="@mctama">
       </div>
       <div class="progress"><div id="prog"></div></div>
       <div class="timeRow"><span id="cur">0:00</span><span id="dur">0:00</span></div>
@@ -89,7 +88,7 @@ canvas#wave{width:100%;height:64px;background:#00000055;border-radius:12px;margi
         <button class="cbtn" id="nextBtn">⏭</button>
         <input type="range" id="vol" min="0" max="100" value="90" style="width:80px">
       </div>
-      <div class="pillRow"><div class="pill">🎧 <span id="logoTxt">iPhone</span> • <span id="vizTxt">Visualizer iOS</span></div></div>
+      <div class="pillRow"><div class="pill">🎧 <span id="logoTxt">iPhone</span> • <span>Visualizer iOS</span></div></div>
     </div>
   </div>
 
@@ -102,13 +101,13 @@ canvas#wave{width:100%;height:64px;background:#00000055;border-radius:12px;margi
       <button class="chip" onclick="setEnd()">Akhir di sini</button>
     </div>
     <div class="row"><label>Panjang potongan</label><select id="trimMode"><option>Bebas</option><option>15 detik</option><option>30 detik</option></select></div>
-    <div class="row"><label>Mulai</label><input type="number" id="startIn" value="0" step="1"></div>
-    <div class="row"><label>Sampai</label><input type="number" id="endIn" value="30" step="1"></div>
+    <div class="row"><label>Mulai</label><input type="number" id="startIn" value="0"></div>
+    <div class="row"><label>Sampai</label><input type="number" id="endIn" value="30"></div>
   </div>
 
   <h3>🎛️ Equalizer</h3>
   <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center"><b>Equalizer</b><div class="flex"><div class="switch on" id="eqSwitch" onclick="this.classList.toggle('on');toggleEQ()"></div><span style="font-size:20px;cursor:pointer" onclick="resetEQ()">↺</span></div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center"><b>Equalizer</b><div class="flex"><div class="switch on" onclick="this.classList.toggle('on')"></div><span style="font-size:20px;cursor:pointer" onclick="resetEQ()">↺</span></div></div>
     <div class="eq" id="eq"></div>
     <p style="font-size:11px;color:#94a3b8;margin-top:10px">Geser ke atas = bass / treble naik. Ini beneran ngaruh ke suara.</p>
   </div>
@@ -123,21 +122,21 @@ canvas#wave{width:100%;height:64px;background:#00000055;border-radius:12px;margi
     <div class="row"><label>Visualizer</label><select id="vizSel"><option>iOS (5 Batang)</option><option>Wave</option><option>Circle</option><option>Bars Penuh</option></select></div>
     <div class="row"><label>Ikon Logo</label><select id="logoSel" onchange="document.getElementById('logoTxt').textContent=this.value"><option>iPhone</option><option>Headphone</option><option>AirPods Pro</option><option>Speaker</option><option>AirPlay</option></select></div>
     <div class="row"><label>Latar</label><select id="bgSel"><option>Blur Cover</option><option>Hitam Pekat</option><option>Gradient Neon</option></select></div>
-    <div class="row"><label>Efek Animasi</label><div class="flex"><button class="chip on" onclick="toggleChip(this)">Partikel</button><button class="chip" onclick="toggleChip(this)">Kilau Cover</button></div></div>
+    <div class="row"><label>Efek Animasi</label><div class="flex"><button class="chip on" onclick="this.classList.toggle('on')">Partikel</button><button class="chip" onclick="this.classList.toggle('on')">Kilau Cover</button></div></div>
   </div>
 
   <h3>🔊 Efek Suara</h3>
   <div class="card">
     <div class="row"><label>Kecepatan</label><select id="speed" onchange="setSpeed()"><option value="0.75">0.75x</option><option value="1" selected>1x (Normal)</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option></select></div>
-    <div class="row"><label>Pitch ikut kecepatan</label><div class="switch on"></div></div>
+    <div class="row"><label>Pitch ikut kecepatan</label><div class="switch on" onclick="this.classList.toggle('on')"></div></div>
     <div class="row"><label>Reverb</label><select><option>Mati</option><option>Ruangan</option><option>Hall</option></select></div>
     <div class="row"><label>Reverb Mix (%)</label><input type="number" value="30"></div>
-    <div class="row"><label>Efek 8D (Putar)</label><div class="switch"></div></div>
+    <div class="row"><label>Efek 8D (Putar)</label><div class="switch" onclick="this.classList.toggle('on')"></div></div>
     <div class="row"><label>Kecepatan Putar 8D</label><select><option>Sedang (10 dtk)</option><option>Lambat</option><option>Cepat</option></select></div>
     <div class="row"><label>Filter</label><div class="flex"><button class="chip" onclick="setFilter('low')">LOW PASS</button><button class="chip" onclick="setFilter('high')">HIGH PASS</button><button class="chip on" onclick="setFilter('off')">OFF</button></div></div>
   </div>
 
-  <p style="text-align:center;font-size:11px;color:#64748b;margin-top:20px">Dibuat buat Xpick Remix • Upload lagu milikmu sendiri ya 🙏</p>
+  <p style="text-align:center;font-size:11px;color:#64748b;margin-top:20px">StudioRemix • by Tama-ID • @mctama 🙏</p>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -147,11 +146,10 @@ const freqs=[60,150,400,1000,2000,4000,8000,16000];
 const eqDiv=document.getElementById('eq');
 freqs.forEach((f,i)=>{
   const d=document.createElement('div'); d.className='eqCol';
-  d.innerHTML=`<span id="eqVal${i}">+0.0</span><input type="range" min="-12" max="12" step="0.5" value="${i==4?6:0}" oninput="setEQ(${i},this.value)"> <b>${f>=1000?f/1000+'K':f}</b>`;
+  d.innerHTML=`<span id="eqVal${i}">+0.0</span><input type="range" min="-12" max="12" step="0.5" value="0" oninput="setEQ(${i},this.value)"> <b>${f>=1000?f/1000+'K':f}</b>`;
   eqDiv.appendChild(d);
 });
 function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2200)}
-function toggleChip(el){el.classList.toggle('on')}
 function initAudio(){
   if(audioCtx) return;
   audioCtx=new (window.AudioContext||window.webkitAudioContext)();
@@ -165,20 +163,12 @@ function initAudio(){
 }
 function setEQ(i,v){document.getElementById('eqVal'+i).textContent=(v>=0?'+':'')+Number(v).toFixed(1); if(filters[i]) filters[i].gain.value=Number(v);}
 function resetEQ(){document.querySelectorAll('#eq input').forEach((e,i)=>{e.value=0;setEQ(i,0)}); toast('Equalizer direset')}
-function toggleEQ(){}
 function setSpeed(){audioEl.playbackRate=parseFloat(document.getElementById('speed').value)}
-function setFilter(t){
-  if(!filterNode) return;
-  if(t=='low'){filterNode.type='lowpass';filterNode.frequency.value=800}
-  else if(t=='high'){filterNode.type='highpass';filterNode.frequency.value=800}
-  else filterNode.type='allpass';
-  toast('Filter: '+t.toUpperCase())
-}
+function setFilter(t){ if(!filterNode) return; if(t=='low'){filterNode.type='lowpass';filterNode.frequency.value=800} else if(t=='high'){filterNode.type='highpass';filterNode.frequency.value=800} else filterNode.type='allpass'; toast('Filter: '+t.toUpperCase()) }
 document.getElementById('audioIn').onchange=e=>{
   let f=e.target.files[0]; if(!f) return;
   audioEl.src=URL.createObjectURL(f); initAudio();
   document.getElementById('titleIn').value=f.name.replace('.mp3','').replace(/_/g,' ');
-  document.getElementById('artistIn').value='Xpick Remix';
   audioEl.onloadedmetadata=()=>{document.getElementById('dur').textContent=fmt(audioEl.duration); document.getElementById('endIn').value=Math.min(30,Math.floor(audioEl.duration)); drawWave();};
   toast('Lagu dimuat: '+f.name);
 };
@@ -212,7 +202,6 @@ function drawWave(){
   for(let i=0;i<c.width;i+=4){let h=Math.random()*90+10; let g=ctx.createLinearGradient(0,0,0,c.height); g.addColorStop(0,'#22d3ee'); g.addColorStop(1,'#f472b6'); ctx.fillStyle=g; ctx.fillRect(i,64-h/2,2,h);}
 }
 drawWave();
-// Visualizer
 let viz=document.getElementById('viz'), vctx=viz.getContext('2d');
 function drawViz(){
   requestAnimationFrame(drawViz);
@@ -227,11 +216,8 @@ function drawViz(){
   } else {
     let w=viz.width/64; for(let i=0;i<64;i++){let h=data[i]/2.2+4; let g=vctx.createLinearGradient(0,120-h,0,120); g.addColorStop(0,'#a78bfa'); g.addColorStop(1,'#22d3ee'); vctx.fillStyle=g; vctx.fillRect(i*w,120-h,w-2,h);}
   }
-  // partikel
-  for(let i=0;i<12;i++){vctx.fillStyle='#ffffff33'; vctx.beginPath(); vctx.arc(Math.random()*480,Math.random()*120,1.2,0,7); vctx.fill();}
 }
 drawViz();
-// Render (Canvas Capture)
 document.getElementById('renderBtn').onclick=async()=>{
   if(!audioEl.src) return toast('Upload lagu dulu bung!');
   toast('Mulai render... jangan tutup layar');
@@ -246,7 +232,7 @@ document.getElementById('renderBtn').onclick=async()=>{
   let combined=new MediaStream([...stream.getVideoTracks(),...dest.stream.getAudioTracks()]);
   let rec=new MediaRecorder(combined,{mimeType:'video/webm;codecs=vp9,opus'});
   let chunks=[]; rec.ondataavailable=e=>chunks.push(e.data);
-  rec.onstop=()=>{let b=new Blob(chunks,{type:'video/webm'}); let a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='xpick-remix-'+Date.now()+'.webm'; a.click(); toast('Video tersimpan ✓')};
+  rec.onstop=()=>{let b=new Blob(chunks,{type:'video/webm'}); let a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='studiomix-'+Date.now()+'.webm'; a.click(); toast('Video tersimpan ✓')};
   rec.start();
   let img=document.getElementById('coverImg');
   let t0=performance.now();
@@ -254,11 +240,9 @@ document.getElementById('renderBtn').onclick=async()=>{
   function frame(){
     let p=(performance.now()-t0)/dur;
     if(p>=1 || audioEl.paused){rec.stop(); audioEl.pause(); return}
-    // bg
     let bg=document.getElementById('bgSel').value;
     if(bg.includes('Gradient')){let g=ctx.createLinearGradient(0,0,720,1280); g.addColorStop(0,'#1e1b4b'); g.addColorStop(.5,'#831843'); g.addColorStop(1,'#0e7490'); ctx.fillStyle=g; ctx.fillRect(0,0,canvas.width,canvas.height);}
     else {ctx.fillStyle='#07070f'; ctx.fillRect(0,0,canvas.width,canvas.height); if(img.src) ctx.drawImage(img,0,0,canvas.width,canvas.height);}
-    // cover
     let s=Math.min(canvas.width,canvas.height)*0.72, x=(canvas.width-s)/2, y=canvas.height*0.08;
     ctx.save(); ctx.shadowColor='#a78bfa'; ctx.shadowBlur=40; ctx.beginPath(); ctx.roundRect(x,y,s,s,28); ctx.clip();
     if(img.src) ctx.drawImage(img,x,y,s,s); else {ctx.fillStyle='#312e81'; ctx.fillRect(x,y,s,s); ctx.font='80px Arial'; ctx.fillText('🎵',x+s/2-40,y+s/2)}
@@ -266,7 +250,6 @@ document.getElementById('renderBtn').onclick=async()=>{
     ctx.fillStyle='#fff'; ctx.font='bold 44px Plus Jakarta Sans, Arial'; ctx.textAlign='center';
     ctx.fillText(document.getElementById('titleIn').value.slice(0,28),canvas.width/2,y+s+58);
     ctx.fillStyle='#ffffffaa'; ctx.font='28px Arial'; ctx.fillText(document.getElementById('artistIn').value,canvas.width/2,y+s+98);
-    // bars
     let d=new Uint8Array(128); if(analyser) analyser.getByteFrequencyData(d);
     for(let i=0;i<48;i++){let h=d[i]/2.5+6; let bx=40+i*((canvas.width-80)/48); let g=ctx.createLinearGradient(0,canvas.height-160,0,canvas.height); g.addColorStop(0,'#22d3ee'); g.addColorStop(1,'#f472b6'); ctx.fillStyle=g; ctx.beginPath(); ctx.roundRect(bx,canvas.height-160-h,(canvas.width-80)/48-4,h,6); ctx.fill();}
     requestAnimationFrame(frame);
