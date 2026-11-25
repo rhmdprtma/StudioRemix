@@ -72,11 +72,17 @@ Cuma pakai **HTML aja**, tapi di dalamnya ada 3 otak:
 ## 📸 Hasilnya
 
 [ COVER FOTO LU ]
+
 DJ ONTHEMIX
+
 DJ RAHMAD PRATAMA
+
 0:00 ------- -0:54
+
  ↺10   ❚❚   ↻10
+ 
  🔈 ─────── 🔊
+ 
   [ ◉ AirPlay ]
 
 ---
