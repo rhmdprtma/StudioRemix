@@ -100,6 +100,7 @@ Untuk menjalankan aplikasi melalui GitHub Pages:
 5. Pilih branch `main`.
 6. Pilih folder `/root`.
 7. Klik Save.
+8. klick “https://rhmdprtma.github.io/StudioRemix/”
 
 Tunggu proses deployment selesai, kemudian buka URL GitHub Pages repository.
 
