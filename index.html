@@ -20,7 +20,6 @@ h3 span{opacity:.6;font-weight:400}
 .switch::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:.2s}
 .switch.on{background:#22c55e}.switch.on::after{left:23px}
 .reset{font-size:18px;cursor:pointer;opacity:.8}
-/* === EQUALIZER ALA DIA, TAPI VERSI LU === */
 .eqTop{display:flex;justify-content:space-between;align-items:center}
 .eqGrid{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;margin-top:6px}
 .eqCol{display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -28,15 +27,15 @@ h3 span{opacity:.6;font-weight:400}
 .eqCol input{writing-mode:vertical-lr;direction:rtl;height:105px;width:18px;accent-color:#a78bfa}
 .eqCol b{font-size:11px;color:#94a3b8;font-weight:600}
 .eqNote{font-size:11px;color:#94a3b8;line-height:1.5;margin-top:10px}
-/* === FILTER SLIDER ALA DIA === */
 .filterBox{margin-top:12px}
 .filterHead{display:flex;justify-content:space-between;font-size:11px;color:#94a3b8;margin-bottom:8px}
 .filterTrack{position:relative;height:34px;background:#0b0b18;border:1px solid #ffffff20;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#94a3b8}
 .filterKnob{position:absolute;top:3px;left:50%;transform:translateX(-50%);width:26px;height:26px;background:#fff;border-radius:7px;box-shadow:0 4px 12px #000;cursor:grab}
-/* === PLAYER IPHONE - INI KUNCINYA === */
+/* === PLAYER IPHONE - UDAH DI TENGAH === */
 .iphone{
   position:relative;overflow:hidden;border-radius:28px;
   aspect-ratio:9/15.5;max-height:620px;
+  width:100%;max-width:360px;margin:0 auto;
   background:#0c0c1a;display:flex;flex-direction:column;
   padding:14px 14px 12px;box-shadow:0 25px 60px #000a;
   border:1px solid #ffffff22;
@@ -57,17 +56,18 @@ h3 span{opacity:.6;font-weight:400}
 .timeRow{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:#ffffffcc;margin:12px 2px 0;position:relative;z-index:2}
 .progress{height:4px;background:#ffffff2b;border-radius:99px;margin:6px 2px 0;position:relative;z-index:2;overflow:hidden}
 #prog{height:100%;width:0%;background:#fff;border-radius:99px}
-.iphoneControls{display:flex;align-items:center;justify-content:space-between;padding:12px 8px 0;position:relative;z-index:2}
-.iphoneControls button{background:transparent;border:0;color:#fff;cursor:pointer}
+/* TOMBOL UDAH RAPET DI TENGAH */
+.iphoneControls{display:flex;align-items:center;justify-content:center;gap:30px;padding:14px 0 0;position:relative;z-index:2}
+.iphoneControls button{background:transparent;border:0;color:#fff;cursor:pointer;flex-shrink:0}
 .star{font-size:24px}.midBtn{font-size:28px}.playBtn{font-size:38px;line-height:1}
-.volRow{display:flex;align-items:center;gap:10px;padding:12px 2px 0;position:relative;z-index:2}
+.volRow{display:flex;align-items:center;gap:10px;padding:12px 6px 0;position:relative;z-index:2;max-width:340px;margin:0 auto;width:100%}
 .volRow input{flex:1;accent-color:#fff}
 .pillRow{display:flex;justify-content:center;margin-top:14px;position:relative;z-index:2}
-.pill{background:rgba(0,0,0,.55);border:1px solid #ffffff22;padding:8px 18px;border-radius:99px;font-size:12px;font-weight:600;backdrop-filter:blur(10px)}
-/* SETTINGS */
+.pill{background:rgba(0,0,0,.55);border:1px solid #ffffff22;padding:8px 18px;border-radius:99px;font-size:12px;font-weight:600;backdrop-filter:blur(10px);color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .row{display:flex;justify-content:space-between;align-items:center;padding:12px 2px;border-bottom:1px solid #ffffff10;font-size:13px;gap:10px}
-.row label{color:#cbd5e1}
+.row label{color:#cbd5e1;flex-shrink:0}
 select,input[type=number]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:9px 10px;min-width:135px;text-align:right;outline:none}
+input[type=text]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:9px 10px;flex:1;min-width:0;text-align:left;outline:none}
 .chip{padding:8px 12px;border-radius:99px;border:1px solid #ffffff22;background:#ffffff10;color:#fff;font-size:12px;cursor:pointer}
 .chip.on{background:#fff;color:#000;font-weight:800}
 .flex{display:flex;gap:8px;flex-wrap:wrap}
@@ -84,21 +84,17 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
   <button class="btn btn-grad" id="renderBtn">● Render Video</button>
 </div>
 
-<!-- EQUALIZER DI ATAS, KAYAK PUNYA DIA -->
 <h3>Ekualiser <span>▲</span></h3>
 <div class="card">
   <div class="eqTop"><b style="font-size:14px">Ekualiser</b><div style="display:flex;gap:12px;align-items:center"><div class="switch on" id="eqSwitch" onclick="this.classList.toggle('on')"></div><span class="reset" onclick="resetEQ()">↺</span></div></div>
   <div class="eqGrid" id="eq"></div>
   <p class="eqNote">Geser ke kiri = Low Pass (suara teredam), ke kanan = High Pass (bass hilang). Ketuk dua kali di jalur untuk kembali ke tengah.</p>
-
-  <!-- FILTER SLIDER ALA DIA -->
   <div class="filterBox">
     <div class="filterHead"><span>Filter:</span><span>FILTER &nbsp; ›</span></div>
     <div class="filterTrack"><span>LOW PASS</span><span>HIGH PASS</span><div class="filterKnob" id="filterKnob"></div></div>
   </div>
 </div>
 
-<!-- PLAYER IPHONE -->
 <h3>Preview iPhone</h3>
 <div class="iphone" id="stage">
   <div class="iphoneBg" id="bgBlur"></div>
@@ -109,7 +105,7 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
   <div class="playerInfo">
     <div class="txt">
       <div class="title" id="titleView">JUDUL LAGU - REMIX</div>
-      <div class="artist" id="artistView">@mctama</div>
+      <div class="artist" id="artistView">Rahmad Pratama</div>
     </div>
     <canvas class="vizMini" id="vizMini" width="38" height="22"></canvas>
   </div>
@@ -120,16 +116,14 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
     <button class="midBtn" id="prevBtn">⏮</button>
     <button class="playBtn" id="playBtn">▶</button>
     <button class="midBtn" id="nextBtn">⏭</button>
-    <span style="width:24px"></span>
   </div>
   <div class="volRow"><span>🔈</span><input type="range" id="vol" min="0" max="100" value="90"><span>🔊</span></div>
-  <div class="pillRow"><div class="pill">◉ StudioRemix • @mctama</div></div>
+  <div class="pillRow"><button class="pill" onclick="toast('AirPlay - Cari perangkat...')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M5 12l7-7 7 7"/><rect x="2" y="14" width="20" height="6" rx="2"/></svg> AirPlay</button></div>
 </div>
 
-<!-- INPUT JUDUL (DISEMBUNYIIN DI BAWAH BIAR RAPI, KAYAK PUNYA DIA) -->
 <div class="card" style="margin-top:14px">
-  <div class="row"><label>Judul Lagu</label><input type="text" id="titleIn" value="Judul Lagu - Remix" style="text-align:left;min-width:180px"></div>
-  <div class="row"><label>Nama Artist</label><input type="text" id="artistIn" value="@mctama" style="text-align:left;min-width:180px"></div>
+  <div class="row"><label>Judul Lagu</label><input type="text" id="titleIn" value="Judul Lagu - Remix"></div>
+  <div class="row"><label>Nama Artist</label><input type="text" id="artistIn" value="@mctama"></div>
   <canvas id="wave"></canvas>
   <div class="flex" style="margin-top:10px"><button class="chip" onclick="playPart()">▶ Putar Bagian</button><button class="chip" onclick="setStart()">Mulai di sini</button><button class="chip" onclick="setEnd()">Akhir di sini</button></div>
   <div class="row"><label>Mulai (detik)</label><input type="number" id="startIn" value="0"></div>
@@ -156,7 +150,7 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
   <div class="row"><label>Kecepatan Putar 8D</label><select><option>Sedang (10 dtk)</option><option>Lambat</option><option>Cepat</option></select></div>
   <div class="row"><label>Arah Putar</label><select><option>Searah jarum jam</option><option>Berlawanan</option></select></div>
 </div>
-<p style="text-align:center;font-size:11px;color:#64748b;margin-top:18px">StudioRemix • by Tama-ID • @mctama 🙏</p>
+<p style="text-align:center;font-size:11px;color:#64748b;margin-top:18px">StudioRemix • by Tama-ID </p>
 </div>
 <div class="toast" id="toast"></div>
 <script>
@@ -184,11 +178,9 @@ function setEnd(){document.getElementById('endIn').value=Math.floor(audioEl.curr
 function playPart(){audioEl.currentTime=Number(document.getElementById('startIn').value||0);audioEl.play();document.getElementById('playBtn').textContent='⏸'}
 function drawWave(){let c=document.getElementById('wave'),ctx=c.getContext('2d');c.width=c.clientWidth*2;c.height=120;ctx.fillStyle='#0f0f1e';ctx.fillRect(0,0,c.width,c.height);for(let i=0;i<c.width;i+=4){let h=Math.random()*80+10;let g=ctx.createLinearGradient(0,0,0,c.height);g.addColorStop(0,'#22d3ee');g.addColorStop(1,'#f472b6');ctx.fillStyle=g;ctx.fillRect(i,60-h/2,2,h)}}
 drawWave();
-// visualizer kecil di samping judul - kayak punya dia
 let mini=document.getElementById('vizMini'),mctx=mini.getContext('2d');
 function drawMini(){requestAnimationFrame(drawMini);mctx.clearRect(0,0,38,22);let d=new Uint8Array(64);if(analyser)analyser.getByteFrequencyData(d);else for(let i=0;i<64;i++)d[i]=Math.random()*20;for(let i=0;i<4;i++){let h=4+d[i*10]/10;let x=4+i*9;mctx.fillStyle='#fff';mctx.beginPath();mctx.roundRect(x,22-h,5,h,3);mctx.fill()}}
 drawMini();
-// filter knob bisa digeser
 let knob=document.getElementById('filterKnob'),drag=false;
 knob.onpointerdown=()=>drag=true;window.onpointerup=()=>drag=false;
 window.onpointermove=e=>{if(!drag)return;let r=knob.parentElement.getBoundingClientRect();let x=Math.max(10,Math.min(r.width-36,e.clientX-r.left));knob.style.left=x+'px'};
