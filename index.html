@@ -28,7 +28,6 @@ h3{font-size:14px;margin:18px 2px 8px}
 .preset button.active{background:#fff;color:#000}
 .filterTrack{position:relative;height:38px;background:#0b0b18;border:1px solid #ffffff20;border-radius:12px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:11px;font-weight:700;color:#94a3b8;margin-top:8px}
 .filterKnob{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:28px;height:30px;background:#fff;border-radius:8px;cursor:grab;box-shadow:0 3px 10px #0008}
-/* === IPHONE LEBIH KEREN DARI PUNYA DIA === */
 .iphone{position:relative;overflow:hidden;width:100%;max-width:330px;margin:0 auto;border-radius:38px;aspect-ratio:9/13.4;background:rgba(255,255,255,0.16);backdrop-filter:blur(35px) saturate(160%);-webkit-backdrop-filter:blur(35px) saturate(160%);border:1px solid rgba(255,255,255,0.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 25px 60px rgba(0,0,0,.6);display:flex;flex-direction:column;padding:16px 16px 14px}
 .iphoneBg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(35px) brightness(.55) saturate(1.4);z-index:0}
 .iphone>*{position:relative;z-index:2}
@@ -123,10 +122,8 @@ input[type=text]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border
 <div class="row"><label>Kecepatan</label><select id="speed" onchange="setSpeed()"><option value="0.75">0.75x</option><option value="1" selected>1x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option></select></div>
 <div class="row" style="border:0"><label>Reverb</label><select id="reverb"><option value="off">Mati</option><option value="room">Ruangan</option><option value="hall">Hall</option></select></div>
 </div>
-<p style="text-align:center;font-size:11px;color:#64748b;margin-top:18px">StudioRemix PRO • by Tama-ID</p>
-</div>
-<div class="toast" id="toast"></div>
-  <div class="card" style="margin-top:2px">
+<h3>Ambil dari YouTube</h3>
+<div class="card">
 <b style="font-size:13px">🔗 Ambil dari YouTube (Link)</b>
 <div style="display:flex;gap:8px;margin-top:10px">
 <input type="text" id="ytLink" placeholder="Tempel link YouTube... https://youtu.be/..." style="text-align:left">
@@ -146,50 +143,15 @@ input[type=text]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border
 </div>
 </div>
 </div>
-  let ytData=null;
-function parseYT(url){
-  let m=url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-  return m?m[1]:null;
-}
-async function loadYT(){
-  let url=document.getElementById('ytLink').value.trim();
-  let id=parseYT(url);
-  if(!id){toast('Link YouTube-nya gak ke-detek bung! Coba yang https://youtu.be/...');return}
-  toast('Ngecek link...');
-  try{
-    let r=await fetch('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v='+id+'&format=json');
-    let j=await r.json();
-    ytData={id:id,title:j.title,author:j.author_name,thumb:'https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg'};
-  }catch(e){
-    ytData={id:id,title:'Video YouTube - '+id,author:'YouTube',thumb:'https://i.ytimg.com/vi/'+id+'/hqdefault.jpg'};
-  }
-  document.getElementById('ytBox').style.display='block';
-  document.getElementById('ytThumb').src=ytData.thumb;
-  document.getElementById('ytTitle').textContent=ytData.title;
-  document.getElementById('ytAuthor').textContent=ytData.author;
-  document.getElementById('ytPlayer').style.display='none';
-  document.getElementById('ytBox').scrollIntoView({behavior:'smooth'});
-  toast('Ketemu! '+ytData.title.slice(0,30));
-}
-function playYT(){
-  if(!ytData)return;
-  let p=document.getElementById('ytPlayer');
-  p.style.display='block';
-  p.innerHTML=`<iframe width="100%" height="200" src="https://www.youtube.com/embed/${ytData.id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:10px"></iframe>`;
-}
-function useYT(){
-  if(!ytData)return;
-  document.getElementById('titleIn').value=ytData.title.slice(0,60);
-  syncTitle();
-  let img=document.getElementById('coverImg');
-  img.src=ytData.thumb; img.style.display='block';
-  document.getElementById('ph').style.display='none';
-  document.getElementById('bgBlur').style.backgroundImage=`url(${ytData.thumb})`;
-  // buat cover render juga keambil
-  let ci=new Image(); ci.crossOrigin='anonymous'; ci.src=ytData.thumb; ci.onload=()=>{coverImgEl=ci; hasCover=true};
-  toast('Judul & Cover keambil dari YouTube 🔥');
-}
+<p style="text-align:center;font-size:11px;color:#64748b;margin-top:18px">StudioRemix PRO • by Tama-ID</p>
+</div>
+<div class="toast" id="toast"></div>
 <script>
+let ytData=null;
+function parseYT(url){let m=url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);return m?m[1]:null}
+async function loadYT(){let url=document.getElementById('ytLink').value.trim();let id=parseYT(url);if(!id){toast('Link YouTube-nya gak ke-detek bung! Coba yang https://youtu.be/...');return}toast('Ngecek link...');try{let r=await fetch('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v='+id+'&format=json');let j=await r.json();ytData={id:id,title:j.title,author:j.author_name,thumb:'https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg'}}catch(e){ytData={id:id,title:'Video YouTube - '+id,author:'YouTube',thumb:'https://i.ytimg.com/vi/'+id+'/hqdefault.jpg'}}document.getElementById('ytBox').style.display='block';document.getElementById('ytThumb').src=ytData.thumb;document.getElementById('ytTitle').textContent=ytData.title;document.getElementById('ytAuthor').textContent=ytData.author;document.getElementById('ytPlayer').style.display='none';document.getElementById('ytBox').scrollIntoView({behavior:'smooth'});toast('Ketemu! '+ytData.title.slice(0,30))}
+function playYT(){if(!ytData)return;let p=document.getElementById('ytPlayer');p.style.display='block';p.innerHTML=`<iframe width="100%" height="200" src="https://www.youtube.com/embed/${ytData.id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:10px"></iframe>`}
+function useYT(){if(!ytData)return;document.getElementById('titleIn').value=ytData.title.slice(0,60);syncTitle();let img=document.getElementById('coverImg');img.src=ytData.thumb;img.style.display='block';document.getElementById('ph').style.display='none';document.getElementById('bgBlur').style.backgroundImage=`url(${ytData.thumb})`;toast('Judul & Cover keambil dari YouTube 🔥')}
 let audioCtx,srcNode,filters=[],gainNode,analyser,audioEl=new Audio(),lowpass,highpass,bassFilter,filterPos=0,eqOn=true,bassOn=false,isPlaying=false,mediaDest,reverbNode,reverbWet,reverbDry,renderRecorder=null,renderChunks=[],rendering=false,renderCanvas=null,renderCtx=null,renderAnim=0,coverObjectUrl=null,audioObjectUrl=null,peaks=[];
 const freqs=[60,150,400,1000,2000,4000,8000,16000];
 const eqDiv=document.getElementById('eq');
@@ -209,7 +171,8 @@ function resetEQ(){document.querySelectorAll('#eq input').forEach((e,i)=>{e.valu
 function setSpeed(){audioEl.playbackRate=parseFloat(document.getElementById('speed').value)}
 function setCutLen(){let l=Number(document.getElementById('cutLen').value);if(l>0){let s=Number(document.getElementById('startIn').value||0),max=Number.isFinite(audioEl.duration)?audioEl.duration:Infinity;document.getElementById('endIn').value=Math.min(max,s+l)}syncCut()}
 function syncCut(){let max=Number.isFinite(audioEl.duration)?audioEl.duration:Infinity,s=Math.max(0,Number(document.getElementById('startIn').value)||0),e=Math.max(s,Number(document.getElementById('endIn').value)||0);if(Number.isFinite(max)){s=Math.min(s,max);e=Math.min(e,max)}document.getElementById('startIn').value=s;document.getElementById('endIn').value=e;document.getElementById('startTxt').value=fmt(s);document.getElementById('endTxt').value=fmt(e)}
-  async function buildWave(file){try{let buf=await file.arrayBuffer();let tmp=new (window.AudioContext||window.webkitAudioContext)();let dec=await tmp.decodeAudioData(buf.slice(0));let ch=dec.getChannelData(0),N=120;peaks=[];let block=Math.floor(ch.length/N);for(let i=0;i<N;i++){let mx=0;for(let j=0;j<block;j++){let v=Math.abs(ch[i*block+j]);if(v>mx)mx=v}peaks.push(mx)}tmp.close();drawWave()}catch(e){peaks=[];drawWave()}}
+  
+async function buildWave(file){try{let buf=await file.arrayBuffer();let tmp=new (window.AudioContext||window.webkitAudioContext)();let dec=await tmp.decodeAudioData(buf.slice(0));let ch=dec.getChannelData(0),N=120;peaks=[];let block=Math.floor(ch.length/N);for(let i=0;i<N;i++){let mx=0;for(let j=0;j<block;j++){let v=Math.abs(ch[i*block+j]);if(v>mx)mx=v}peaks.push(mx)}tmp.close();drawWave()}catch(e){peaks=[];drawWave()}}
 function drawWave(){let c=document.getElementById('waveCanvas'),ctx=c.getContext('2d');c.width=c.offsetWidth*2;c.height=c.offsetHeight*2;ctx.clearRect(0,0,c.width,c.height);let N=peaks.length||120;for(let i=0;i<N;i++){let p=peaks.length?peaks[i]:(0.3+Math.random()*0.4);let h=Math.max(6,p*c.height*0.92);let x=i*(c.width/N)+1;ctx.fillStyle=i%3==0?'#a78bfa':'#ffffff55';ctx.fillRect(x,(c.height-h)/2,Math.max(2,c.width/N-2),h)}}
 drawWave();
 document.getElementById('waveWrap').onclick=e=>{let r=e.currentTarget.getBoundingClientRect();let p=(e.clientX-r.left)/r.width;if(audioEl.duration)audioEl.currentTime=p*audioEl.duration;toast('Geser ke '+fmt(audioEl.currentTime))};
