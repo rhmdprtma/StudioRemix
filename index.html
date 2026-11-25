@@ -1,262 +1,196 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>StudioRemix - Music Video Maker</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Anton&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudioRemix - by Tama-ID</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Anton&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif}
-body{background:#07070f;color:#fff;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(600px 400px at 10% 0%,#7c3aed55,transparent),radial-gradient(600px 400px at 90% 20%,#ec489955,transparent),radial-gradient(500px 400px at 50% 100%,#06b6d455,transparent);z-index:0}
-.app{position:relative;z-index:1;max-width:480px;margin:auto;padding:16px 14px 90px}
-.top{display:flex;justify-content:space-between;align-items:center;margin:6px 2px 14px}
-.logo{font-weight:800;font-size:22px;letter-spacing:-.5px}.logo span{background:linear-gradient(90deg,#a78bfa,#f472b6,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.badge{background:#ffffff14;border:1px solid #ffffff22;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:700}
-.card{background:linear-gradient(180deg,#ffffff14,#ffffff08);border:1px solid #ffffff1f;backdrop-filter:blur(16px);border-radius:24px;padding:14px;box-shadow:0 20px 50px #0008}
-.btn{width:100%;border:0;cursor:pointer;border-radius:14px;padding:13px;font-weight:800;font-size:14px}
-.btn-dark{background:#1f1f2e;color:#fff;border:1px solid #ffffff22}
-.btn-grad{background:linear-gradient(90deg,#38bdf8,#818cf8,#e879f9);color:#fff;box-shadow:0 10px 30px #818cf855}
-.btn:active{transform:scale(.98)}
-.warn{background:#ff3b3018;border:1px solid #ff3b3044;color:#ffb4ad;font-size:11px;line-height:1.5;padding:10px 12px;border-radius:14px;margin:14px 0}
-.stage{position:relative;overflow:hidden;border-radius:20px;aspect-ratio:9/16;max-height:520px;background:#0b0b18;display:flex;flex-direction:column;justify-content:flex-end}
-.stage.landscape{aspect-ratio:16/9;max-height:280px}
-#bgBlur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(28px) brightness(.6);transform:scale(1.2)}
-#coverWrap{position:relative;z-index:2;margin:18px 18px 8px;border-radius:18px;overflow:hidden;aspect-ratio:1/1;background:linear-gradient(135deg,#312e81,#be185d);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px #000a;cursor:pointer}
-#coverWrap img{width:100%;height:100%;object-fit:cover;display:none}
-#coverWrap .ph{font-size:58px;opacity:.8;text-align:center}
-#coverWrap .ph small{display:block;font-size:11px;margin-top:6px}
-#viz{position:absolute;left:0;right:0;bottom:0;height:120px;z-index:3;pointer-events:none}
-.meta{position:relative;z-index:4;padding:0 16px 10px}
-.meta input{background:transparent;border:0;border-bottom:1px dashed #ffffff44;color:#fff;width:100%;outline:none;font-weight:800;font-size:20px;padding:4px 0}
-.meta input.artist{font-size:13px;font-weight:600;color:#ffffffbb}
-.progress{height:5px;background:#ffffff2a;border-radius:99px;overflow:hidden;margin:10px 16px 4px;position:relative;z-index:4}
-#prog{height:100%;width:0%;background:linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6)}
-.timeRow{display:flex;justify-content:space-between;font-size:11px;color:#ffffffaa;padding:0 16px;position:relative;z-index:4}
-.controls{display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 0 14px;position:relative;z-index:4}
-.cbtn{width:48px;height:48px;border-radius:50%;border:0;background:#ffffff1a;color:#fff;font-size:18px;cursor:pointer}
-.cbtn.play{width:62px;height:62px;background:#fff;color:#000;font-size:22px;box-shadow:0 0 0 6px #ffffff22}
-.pill{display:inline-flex;align-items:center;gap:6px;background:#00000055;border:1px solid #ffffff22;padding:7px 12px;border-radius:99px;font-size:12px}
-.pillRow{display:flex;justify-content:center;padding-bottom:12px;position:relative;z-index:4}
-h3{font-size:15px;margin:18px 2px 10px}
-.row{display:flex;justify-content:space-between;align-items:center;padding:11px 4px;border-bottom:1px solid #ffffff10;font-size:13px;gap:10px}
+body{background:#080810;color:#fff;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(500px 350px at 0% 0%,#7c3aed66,transparent),radial-gradient(500px 350px at 100% 20%,#ec489966,transparent),radial-gradient(500px 400px at 50% 100%,#06b6d466,transparent)}
+.app{position:relative;z-index:1;max-width:440px;margin:auto;padding:14px 14px 80px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:6px 2px 14px}
+.logo{font-weight:800;font-size:22px}.logo i{font-style:normal;background:linear-gradient(90deg,#a78bfa,#f472b6,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.badge{background:#ffffff14;border:1px solid #ffffff25;padding:6px 11px;border-radius:99px;font-size:11px;font-weight:700}
+.card{background:linear-gradient(180deg,#ffffff16,#ffffff07);border:1px solid #ffffff20;backdrop-filter:blur(18px);border-radius:26px;padding:14px;box-shadow:0 20px 50px #000a}
+.btn{width:100%;border:0;border-radius:14px;padding:13px;font-weight:800;font-size:14px;cursor:pointer}
+.btn-dark{background:#1b1b2e;color:#fff;border:1px solid #ffffff22}
+.btn-grad{background:linear-gradient(90deg,#38bdf8,#818cf8,#e879f9);color:#fff;margin-top:10px;box-shadow:0 10px 30px #818cf855}
+h3{font-size:14px;margin:18px 2px 8px;display:flex;justify-content:space-between;align-items:center}
+h3 span{opacity:.6;font-weight:400}
+.switch{width:48px;height:28px;background:#334155;border-radius:99px;position:relative;cursor:pointer;flex-shrink:0}
+.switch::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:.2s}
+.switch.on{background:#22c55e}.switch.on::after{left:23px}
+.reset{font-size:18px;cursor:pointer;opacity:.8}
+/* === EQUALIZER ALA DIA, TAPI VERSI LU === */
+.eqTop{display:flex;justify-content:space-between;align-items:center}
+.eqGrid{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;margin-top:6px}
+.eqCol{display:flex;flex-direction:column;align-items:center;gap:8px}
+.eqCol span{font-size:10px;color:#cbd5e1;font-weight:600}
+.eqCol input{writing-mode:vertical-lr;direction:rtl;height:105px;width:18px;accent-color:#a78bfa}
+.eqCol b{font-size:11px;color:#94a3b8;font-weight:600}
+.eqNote{font-size:11px;color:#94a3b8;line-height:1.5;margin-top:10px}
+/* === FILTER SLIDER ALA DIA === */
+.filterBox{margin-top:12px}
+.filterHead{display:flex;justify-content:space-between;font-size:11px;color:#94a3b8;margin-bottom:8px}
+.filterTrack{position:relative;height:34px;background:#0b0b18;border:1px solid #ffffff20;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#94a3b8}
+.filterKnob{position:absolute;top:3px;left:50%;transform:translateX(-50%);width:26px;height:26px;background:#fff;border-radius:7px;box-shadow:0 4px 12px #000;cursor:grab}
+/* === PLAYER IPHONE - INI KUNCINYA === */
+.iphone{
+  position:relative;overflow:hidden;border-radius:28px;
+  aspect-ratio:9/15.5;max-height:620px;
+  background:#0c0c1a;display:flex;flex-direction:column;
+  padding:14px 14px 12px;box-shadow:0 25px 60px #000a;
+  border:1px solid #ffffff22;
+}
+.iphoneBg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(28px) brightness(.6);transform:scale(1.3)}
+.cover{
+  position:relative;z-index:2;border-radius:18px;overflow:hidden;aspect-ratio:1/1;
+  background:linear-gradient(135deg,#312e81,#be185d);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 15px 35px #000a;cursor:pointer;flex-shrink:0;
+}
+.cover img{width:100%;height:100%;object-fit:cover;display:none}
+.cover .ph{font-size:54px;text-align:center}.cover .ph small{display:block;font-size:11px;margin-top:6px;opacity:.8}
+.playerInfo{position:relative;z-index:2;display:flex;align-items:center;gap:10px;margin-top:14px;padding:0 2px}
+.playerInfo .txt{flex:1;min-width:0}
+.playerInfo .title{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.playerInfo .artist{font-size:13px;color:#ffffffaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.vizMini{width:38px;height:22px;flex-shrink:0}
+.timeRow{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:#ffffffcc;margin:12px 2px 0;position:relative;z-index:2}
+.progress{height:4px;background:#ffffff2b;border-radius:99px;margin:6px 2px 0;position:relative;z-index:2;overflow:hidden}
+#prog{height:100%;width:0%;background:#fff;border-radius:99px}
+.iphoneControls{display:flex;align-items:center;justify-content:space-between;padding:12px 8px 0;position:relative;z-index:2}
+.iphoneControls button{background:transparent;border:0;color:#fff;cursor:pointer}
+.star{font-size:24px}.midBtn{font-size:28px}.playBtn{font-size:38px;line-height:1}
+.volRow{display:flex;align-items:center;gap:10px;padding:12px 2px 0;position:relative;z-index:2}
+.volRow input{flex:1;accent-color:#fff}
+.pillRow{display:flex;justify-content:center;margin-top:14px;position:relative;z-index:2}
+.pill{background:rgba(0,0,0,.55);border:1px solid #ffffff22;padding:8px 18px;border-radius:99px;font-size:12px;font-weight:600;backdrop-filter:blur(10px)}
+/* SETTINGS */
+.row{display:flex;justify-content:space-between;align-items:center;padding:12px 2px;border-bottom:1px solid #ffffff10;font-size:13px;gap:10px}
 .row label{color:#cbd5e1}
-select,input[type=number]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:8px 10px;min-width:130px;text-align:right;outline:none}
-input[type=range]{width:100%;accent-color:#a78bfa}
-/* FIX EQUALIZER - 8 kolom pas, gak jatoh lagi */
-.eq{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:8px}
-.eqCol{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
-.eqCol input{writing-mode:vertical-lr;direction:rtl;height:110px;width:22px;accent-color:#22d3ee}
-.eqCol b{font-size:10px;color:#94a3b8}.eqCol span{font-size:10px;font-weight:700;white-space:nowrap}
-canvas#wave{width:100%;height:64px;background:#00000055;border-radius:12px;margin-top:8px}
+select,input[type=number]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:9px 10px;min-width:135px;text-align:right;outline:none}
 .chip{padding:8px 12px;border-radius:99px;border:1px solid #ffffff22;background:#ffffff10;color:#fff;font-size:12px;cursor:pointer}
 .chip.on{background:#fff;color:#000;font-weight:800}
 .flex{display:flex;gap:8px;flex-wrap:wrap}
-.switch{width:46px;height:26px;background:#334155;border-radius:99px;position:relative;cursor:pointer;flex-shrink:0}
-.switch::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:.2s}
-.switch.on{background:#22c55e}.switch.on::after{left:23px}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#fff;color:#000;padding:10px 16px;border-radius:99px;font-size:13px;font-weight:700;z-index:99;display:none;box-shadow:0 10px 30px #000}
-</style>
-</head>
+canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margin-top:8px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#fff;color:#000;padding:10px 16px;border-radius:99px;font-size:13px;font-weight:700;z-index:99;display:none}
+</style></head>
 <body>
 <div class="app">
-  <div class="top"><div class="logo">Studio<span>Remix</span> 🎧</div><div class="badge">✨ PRO • v2</div></div>
+<div class="top"><div class="logo">Studio<i>Remix</i> 🎧</div><div class="badge">✨ PRO • by Tama-ID</div></div>
 
-  <div class="card">
-    <button class="btn btn-dark" onclick="document.getElementById('audioIn').click()">+ Upload Song</button>
-    <input type="file" id="audioIn" accept="audio/*" hidden>
-    <div style="height:10px"></div>
-    <button class="btn btn-grad" id="renderBtn">● Render Video</button>
-    <div class="warn">⚠️ Tips: Render di 720p / 30fps biar gak berat. Jangan tutup layar saat render.</div>
+<div class="card">
+  <button class="btn btn-dark" onclick="document.getElementById('audioIn').click()">+ Upload Song</button>
+  <input type="file" id="audioIn" accept="audio/*" hidden>
+  <button class="btn btn-grad" id="renderBtn">● Render Video</button>
+</div>
 
-    <div class="stage" id="stage">
-      <div id="bgBlur"></div>
-      <div id="coverWrap" onclick="document.getElementById('imgIn').click()">
-        <img id="coverImg"><div class="ph" id="ph">🎵<small>Tap untuk ganti foto</small></div>
-      </div>
-      <input type="file" id="imgIn" accept="image/*" hidden>
-      <canvas id="viz" width="480" height="120"></canvas>
-      <div class="meta">
-        <input id="titleIn" value="Judul Lagu - Remix">
-        <input class="artist" id="artistIn" value="@mctama">
-      </div>
-      <div class="progress"><div id="prog"></div></div>
-      <div class="timeRow"><span id="cur">0:00</span><span id="dur">0:00</span></div>
-      <div class="controls">
-        <button class="cbtn" id="prevBtn">⏮</button>
-        <button class="cbtn play" id="playBtn">▶</button>
-        <button class="cbtn" id="nextBtn">⏭</button>
-        <input type="range" id="vol" min="0" max="100" value="90" style="width:80px">
-      </div>
-      <div class="pillRow"><div class="pill">🎧 <span id="logoTxt">iPhone</span> • <span>Visualizer iOS</span></div></div>
+<!-- EQUALIZER DI ATAS, KAYAK PUNYA DIA -->
+<h3>Ekualiser <span>▲</span></h3>
+<div class="card">
+  <div class="eqTop"><b style="font-size:14px">Ekualiser</b><div style="display:flex;gap:12px;align-items:center"><div class="switch on" id="eqSwitch" onclick="this.classList.toggle('on')"></div><span class="reset" onclick="resetEQ()">↺</span></div></div>
+  <div class="eqGrid" id="eq"></div>
+  <p class="eqNote">Geser ke kiri = Low Pass (suara teredam), ke kanan = High Pass (bass hilang). Ketuk dua kali di jalur untuk kembali ke tengah.</p>
+
+  <!-- FILTER SLIDER ALA DIA -->
+  <div class="filterBox">
+    <div class="filterHead"><span>Filter:</span><span>FILTER &nbsp; ›</span></div>
+    <div class="filterTrack"><span>LOW PASS</span><span>HIGH PASS</span><div class="filterKnob" id="filterKnob"></div></div>
+  </div>
+</div>
+
+<!-- PLAYER IPHONE -->
+<h3>Preview iPhone</h3>
+<div class="iphone" id="stage">
+  <div class="iphoneBg" id="bgBlur"></div>
+  <div class="cover" id="coverWrap" onclick="document.getElementById('imgIn').click()">
+    <img id="coverImg"><div class="ph" id="ph">🎵<small>Tap untuk ganti foto</small></div>
+  </div>
+  <input type="file" id="imgIn" accept="image/*" hidden>
+  <div class="playerInfo">
+    <div class="txt">
+      <div class="title" id="titleView">JUDUL LAGU - REMIX</div>
+      <div class="artist" id="artistView">@mctama</div>
     </div>
+    <canvas class="vizMini" id="vizMini" width="38" height="22"></canvas>
   </div>
-
-  <h3>✂️ Potong Lagu</h3>
-  <div class="card">
-    <canvas id="wave"></canvas>
-    <div class="flex" style="margin-top:10px">
-      <button class="chip" onclick="playPart()">▶ Putar Bagian</button>
-      <button class="chip" onclick="setStart()">Mulai di sini</button>
-      <button class="chip" onclick="setEnd()">Akhir di sini</button>
-    </div>
-    <div class="row"><label>Panjang potongan</label><select id="trimMode"><option>Bebas</option><option>15 detik</option><option>30 detik</option></select></div>
-    <div class="row"><label>Mulai</label><input type="number" id="startIn" value="0"></div>
-    <div class="row"><label>Sampai</label><input type="number" id="endIn" value="30"></div>
+  <div class="timeRow"><span id="cur">0:00</span><span id="dur">-0:39</span></div>
+  <div class="progress"><div id="prog"></div></div>
+  <div class="iphoneControls">
+    <button class="star" id="favBtn" onclick="this.textContent=this.textContent=='☆'?'★':'☆'">☆</button>
+    <button class="midBtn" id="prevBtn">⏮</button>
+    <button class="playBtn" id="playBtn">▶</button>
+    <button class="midBtn" id="nextBtn">⏭</button>
+    <span style="width:24px"></span>
   </div>
+  <div class="volRow"><span>🔈</span><input type="range" id="vol" min="0" max="100" value="90"><span>🔊</span></div>
+  <div class="pillRow"><div class="pill">◉ StudioRemix • @mctama</div></div>
+</div>
 
-  <h3>🎛️ Equalizer</h3>
-  <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center"><b>Equalizer</b><div class="flex"><div class="switch on" onclick="this.classList.toggle('on')"></div><span style="font-size:20px;cursor:pointer" onclick="resetEQ()">↺</span></div></div>
-    <div class="eq" id="eq"></div>
-    <p style="font-size:11px;color:#94a3b8;margin-top:10px">Geser ke atas = bass / treble naik. Ini beneran ngaruh ke suara.</p>
-  </div>
+<!-- INPUT JUDUL (DISEMBUNYIIN DI BAWAH BIAR RAPI, KAYAK PUNYA DIA) -->
+<div class="card" style="margin-top:14px">
+  <div class="row"><label>Judul Lagu</label><input type="text" id="titleIn" value="Judul Lagu - Remix" style="text-align:left;min-width:180px"></div>
+  <div class="row"><label>Nama Artist</label><input type="text" id="artistIn" value="@mctama" style="text-align:left;min-width:180px"></div>
+  <canvas id="wave"></canvas>
+  <div class="flex" style="margin-top:10px"><button class="chip" onclick="playPart()">▶ Putar Bagian</button><button class="chip" onclick="setStart()">Mulai di sini</button><button class="chip" onclick="setEnd()">Akhir di sini</button></div>
+  <div class="row"><label>Mulai (detik)</label><input type="number" id="startIn" value="0"></div>
+  <div class="row"><label>Sampai (detik)</label><input type="number" id="endIn" value="30"></div>
+</div>
 
-  <h3>⚙️ Pengaturan Video</h3>
-  <div class="card">
-    <div class="row"><label>Resolusi</label><select id="res"><option>480p</option><option selected>720p (HD)</option><option>1080p (Jernih)</option><option>1440p (Berat)</option></select></div>
-    <div class="row"><label>Orientasi</label><select id="orient" onchange="document.getElementById('stage').classList.toggle('landscape',this.value.includes('Lanskap'))"><option>Potret (9:16)</option><option>Lanskap (16:9)</option></select></div>
-    <div class="row"><label>FPS</label><select id="fps"><option>24</option><option selected>30</option><option>60 (Berat)</option></select></div>
-    <div class="row"><label>Font</label><select id="fontSel" onchange="document.getElementById('titleIn').style.fontFamily=this.value"><option value="'Plus Jakarta Sans'">Inter / Modern</option><option value="'Anton'">Anton (Tebal)</option><option value="'Poppins'">Poppins</option></select></div>
-    <div class="row"><label>Gaya nama artist</label><select id="artistStyle"><option>Normal</option><option>Tebal</option><option>HURUF BESAR</option><option>huruf kecil</option></select></div>
-    <div class="row"><label>Visualizer</label><select id="vizSel"><option>iOS (5 Batang)</option><option>Wave</option><option>Circle</option><option>Bars Penuh</option></select></div>
-    <div class="row"><label>Ikon Logo</label><select id="logoSel" onchange="document.getElementById('logoTxt').textContent=this.value"><option>iPhone</option><option>Headphone</option><option>AirPods Pro</option><option>Speaker</option><option>AirPlay</option></select></div>
-    <div class="row"><label>Latar</label><select id="bgSel"><option>Blur Cover</option><option>Hitam Pekat</option><option>Gradient Neon</option></select></div>
-    <div class="row"><label>Efek Animasi</label><div class="flex"><button class="chip on" onclick="this.classList.toggle('on')">Partikel</button><button class="chip" onclick="this.classList.toggle('on')">Kilau Cover</button></div></div>
-  </div>
+<h3>Pengaturan Video</h3>
+<div class="card">
+  <div class="row"><label>Resolusi</label><select id="res"><option>480p</option><option selected>720p (HD)</option><option>1080p</option></select></div>
+  <div class="row"><label>Orientasi</label><select><option>Potret (9:16)</option><option>Lanskap (16:9)</option></select></div>
+  <div class="row"><label>FPS</label><select><option>24</option><option selected>30</option><option>60</option></select></div>
+  <div class="row"><label>Visualizer</label><select id="vizSel"><option>iOS (5 Batang)</option><option>Wave</option><option>Circle</option></select></div>
+  <div class="row"><label>Latar</label><select><option>Blur Cover</option><option>Hitam Pekat</option><option>Gradient Neon</option></select></div>
+  <div class="row"><label>Effect Visual</label><div class="flex"><button class="chip on">Kilau Cover</button><button class="chip">Partikel</button></div></div>
+</div>
 
-  <h3>🔊 Efek Suara</h3>
-  <div class="card">
-    <div class="row"><label>Kecepatan</label><select id="speed" onchange="setSpeed()"><option value="0.75">0.75x</option><option value="1" selected>1x (Normal)</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option></select></div>
-    <div class="row"><label>Pitch ikut kecepatan</label><div class="switch on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="row"><label>Reverb</label><select><option>Mati</option><option>Ruangan</option><option>Hall</option></select></div>
-    <div class="row"><label>Reverb Mix (%)</label><input type="number" value="30"></div>
-    <div class="row"><label>Efek 8D (Putar)</label><div class="switch" onclick="this.classList.toggle('on')"></div></div>
-    <div class="row"><label>Kecepatan Putar 8D</label><select><option>Sedang (10 dtk)</option><option>Lambat</option><option>Cepat</option></select></div>
-    <div class="row"><label>Filter</label><div class="flex"><button class="chip" onclick="setFilter('low')">LOW PASS</button><button class="chip" onclick="setFilter('high')">HIGH PASS</button><button class="chip on" onclick="setFilter('off')">OFF</button></div></div>
-  </div>
-
-  <p style="text-align:center;font-size:11px;color:#64748b;margin-top:20px">StudioRemix • by Tama-ID • @mctama 🙏</p>
+<h3>Efek Suara</h3>
+<div class="card">
+  <div class="row"><label>Kecepatan</label><select id="speed" onchange="setSpeed()"><option value="0.75">0.75x</option><option value="1" selected>1x (normal)</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option></select></div>
+  <div class="row"><label>Pitch ikut kecepatan</label><div class="switch on" onclick="this.classList.toggle('on')"></div></div>
+  <div class="row"><label>Reverb</label><select><option>Mati</option><option>Ruangan</option><option>Hall</option></select></div>
+  <div class="row"><label>Reverb Mix (%)</label><input type="number" value="30"></div>
+  <div class="row"><label>Efek 8D (putar)</label><div class="switch" onclick="this.classList.toggle('on')"></div></div>
+  <div class="row"><label>Kecepatan Putar 8D</label><select><option>Sedang (10 dtk)</option><option>Lambat</option><option>Cepat</option></select></div>
+  <div class="row"><label>Arah Putar</label><select><option>Searah jarum jam</option><option>Berlawanan</option></select></div>
+</div>
+<p style="text-align:center;font-size:11px;color:#64748b;margin-top:18px">StudioRemix • by Tama-ID • @mctama 🙏</p>
 </div>
 <div class="toast" id="toast"></div>
-
 <script>
-let audioCtx, srcNode, filters=[], gainNode, analyser, audioEl=new Audio(), filterNode;
+let audioCtx,srcNode,filters=[],gainNode,analyser,audioEl=new Audio();
 const freqs=[60,150,400,1000,2000,4000,8000,16000];
 const eqDiv=document.getElementById('eq');
-freqs.forEach((f,i)=>{
-  const d=document.createElement('div'); d.className='eqCol';
-  d.innerHTML=`<span id="eqVal${i}">+0.0</span><input type="range" min="-12" max="12" step="0.5" value="0" oninput="setEQ(${i},this.value)"> <b>${f>=1000?f/1000+'K':f}</b>`;
-  eqDiv.appendChild(d);
-});
-function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2200)}
-function initAudio(){
-  if(audioCtx) return;
-  audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-  srcNode=audioCtx.createMediaElementSource(audioEl);
-  analyser=audioCtx.createAnalyser(); analyser.fftSize=256;
-  gainNode=audioCtx.createGain(); gainNode.gain.value=0.9;
-  filterNode=audioCtx.createBiquadFilter(); filterNode.type='allpass';
-  let last=srcNode;
-  freqs.forEach(f=>{let b=audioCtx.createBiquadFilter();b.type='peaking';b.frequency.value=f;b.Q.value=1;b.gain.value=0;filters.push(b);last.connect(b);last=b;});
-  last.connect(filterNode); filterNode.connect(gainNode); gainNode.connect(analyser); analyser.connect(audioCtx.destination);
-}
-function setEQ(i,v){document.getElementById('eqVal'+i).textContent=(v>=0?'+':'')+Number(v).toFixed(1); if(filters[i]) filters[i].gain.value=Number(v);}
-function resetEQ(){document.querySelectorAll('#eq input').forEach((e,i)=>{e.value=0;setEQ(i,0)}); toast('Equalizer direset')}
+freqs.forEach((f,i)=>{let d=document.createElement('div');d.className='eqCol';d.innerHTML=`<span id="eqVal${i}">+0,0</span><input type="range" min="-12" max="12" step="0.5" value="0" oninput="setEQ(${i},this.value)"><b>${f>=1000?f/1000+'K':f}</b>`;eqDiv.appendChild(d)});
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2000)}
+function initAudio(){if(audioCtx)return;audioCtx=new (window.AudioContext||window.webkitAudioContext)();srcNode=audioCtx.createMediaElementSource(audioEl);analyser=audioCtx.createAnalyser();analyser.fftSize=256;gainNode=audioCtx.createGain();gainNode.gain.value=.9;let last=srcNode;freqs.forEach(f=>{let b=audioCtx.createBiquadFilter();b.type='peaking';b.frequency.value=f;b.Q.value=1;filters.push(b);last.connect(b);last=b});last.connect(gainNode);gainNode.connect(analyser);analyser.connect(audioCtx.destination)}
+function setEQ(i,v){document.getElementById('eqVal'+i).textContent=(v>=0?'+':'')+Number(v).toFixed(1).replace('.',',');if(filters[i])filters[i].gain.value=Number(v)}
+function resetEQ(){document.querySelectorAll('#eq input').forEach((e,i)=>{e.value=0;setEQ(i,0)});toast('Equalizer direset')}
 function setSpeed(){audioEl.playbackRate=parseFloat(document.getElementById('speed').value)}
-function setFilter(t){ if(!filterNode) return; if(t=='low'){filterNode.type='lowpass';filterNode.frequency.value=800} else if(t=='high'){filterNode.type='highpass';filterNode.frequency.value=800} else filterNode.type='allpass'; toast('Filter: '+t.toUpperCase()) }
-document.getElementById('audioIn').onchange=e=>{
-  let f=e.target.files[0]; if(!f) return;
-  audioEl.src=URL.createObjectURL(f); initAudio();
-  document.getElementById('titleIn').value=f.name.replace('.mp3','').replace(/_/g,' ');
-  audioEl.onloadedmetadata=()=>{document.getElementById('dur').textContent=fmt(audioEl.duration); document.getElementById('endIn').value=Math.min(30,Math.floor(audioEl.duration)); drawWave();};
-  toast('Lagu dimuat: '+f.name);
-};
-document.getElementById('imgIn').onchange=e=>{
-  let f=e.target.files[0]; if(!f) return;
-  let u=URL.createObjectURL(f);
-  let img=document.getElementById('coverImg'); img.src=u; img.style.display='block'; document.getElementById('ph').style.display='none';
-  document.getElementById('bgBlur').style.backgroundImage=`url(${u})`;
-  toast('Foto cover dimuat ✓');
-};
-document.getElementById('playBtn').onclick=()=>{
-  initAudio(); audioCtx.resume();
-  if(audioEl.paused){audioEl.play(); document.getElementById('playBtn').textContent='⏸'} else {audioEl.pause(); document.getElementById('playBtn').textContent='▶'}
-};
-document.getElementById('prevBtn').onclick=()=>{audioEl.currentTime=Math.max(0,audioEl.currentTime-10)};
-document.getElementById('nextBtn').onclick=()=>{audioEl.currentTime=Math.min(audioEl.duration,audioEl.currentTime+10)};
-document.getElementById('vol').oninput=e=>{if(gainNode) gainNode.gain.value=e.target.value/100};
-audioEl.ontimeupdate=()=>{
-  document.getElementById('cur').textContent=fmt(audioEl.currentTime);
-  if(audioEl.duration) document.getElementById('prog').style.width=(audioEl.currentTime/audioEl.duration*100)+'%';
-  let end=Number(document.getElementById('endIn').value||30);
-  if(audioEl.currentTime>=end){audioEl.pause(); document.getElementById('playBtn').textContent='▶'}
-};
-function fmt(s){if(!s) return '0:00'; s=Math.floor(s); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
-function setStart(){document.getElementById('startIn').value=Math.floor(audioEl.currentTime); toast('Mulai di '+fmt(audioEl.currentTime))}
-function setEnd(){document.getElementById('endIn').value=Math.floor(audioEl.currentTime); toast('Sampai di '+fmt(audioEl.currentTime))}
-function playPart(){audioEl.currentTime=Number(document.getElementById('startIn').value||0); audioEl.play(); document.getElementById('playBtn').textContent='⏸'}
-function drawWave(){
-  let c=document.getElementById('wave'),ctx=c.getContext('2d'); c.width=c.clientWidth*2; c.height=128;
-  ctx.fillStyle='#0f0f1e'; ctx.fillRect(0,0,c.width,c.height);
-  for(let i=0;i<c.width;i+=4){let h=Math.random()*90+10; let g=ctx.createLinearGradient(0,0,0,c.height); g.addColorStop(0,'#22d3ee'); g.addColorStop(1,'#f472b6'); ctx.fillStyle=g; ctx.fillRect(i,64-h/2,2,h);}
-}
+document.getElementById('audioIn').onchange=e=>{let f=e.target.files[0];if(!f)return;audioEl.src=URL.createObjectURL(f);initAudio();document.getElementById('titleIn').value=f.name.replace('.mp3','');syncTitle();audioEl.onloadedmetadata=()=>{document.getElementById('dur').textContent='-'+fmt(audioEl.duration);document.getElementById('endIn').value=Math.min(30,Math.floor(audioEl.duration));drawWave()};toast('Lagu dimuat: '+f.name)};
+document.getElementById('imgIn').onchange=e=>{let f=e.target.files[0];if(!f)return;let u=URL.createObjectURL(f);let img=document.getElementById('coverImg');img.src=u;img.style.display='block';document.getElementById('ph').style.display='none';document.getElementById('bgBlur').style.backgroundImage=`url(${u})`;toast('Foto dimuat ✓')};
+function syncTitle(){document.getElementById('titleView').textContent=document.getElementById('titleIn').value.toUpperCase();document.getElementById('artistView').textContent=document.getElementById('artistIn').value}
+document.getElementById('titleIn').oninput=syncTitle;document.getElementById('artistIn').oninput=syncTitle;
+document.getElementById('playBtn').onclick=()=>{initAudio();audioCtx.resume();if(audioEl.paused){audioEl.play();document.getElementById('playBtn').textContent='⏸'}else{audioEl.pause();document.getElementById('playBtn').textContent='▶'}};
+document.getElementById('prevBtn').onclick=()=>audioEl.currentTime=Math.max(0,audioEl.currentTime-10);
+document.getElementById('nextBtn').onclick=()=>audioEl.currentTime=Math.min(audioEl.duration,audioEl.currentTime+10);
+document.getElementById('vol').oninput=e=>{if(gainNode)gainNode.gain.value=e.target.value/100};
+audioEl.ontimeupdate=()=>{document.getElementById('cur').textContent=fmt(audioEl.currentTime);if(audioEl.duration){document.getElementById('prog').style.width=(audioEl.currentTime/audioEl.duration*100)+'%';document.getElementById('dur').textContent='-'+fmt(audioEl.duration-audioEl.currentTime)}};
+function fmt(s){if(!s)return '0:00';s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function setStart(){document.getElementById('startIn').value=Math.floor(audioEl.currentTime)}
+function setEnd(){document.getElementById('endIn').value=Math.floor(audioEl.currentTime)}
+function playPart(){audioEl.currentTime=Number(document.getElementById('startIn').value||0);audioEl.play();document.getElementById('playBtn').textContent='⏸'}
+function drawWave(){let c=document.getElementById('wave'),ctx=c.getContext('2d');c.width=c.clientWidth*2;c.height=120;ctx.fillStyle='#0f0f1e';ctx.fillRect(0,0,c.width,c.height);for(let i=0;i<c.width;i+=4){let h=Math.random()*80+10;let g=ctx.createLinearGradient(0,0,0,c.height);g.addColorStop(0,'#22d3ee');g.addColorStop(1,'#f472b6');ctx.fillStyle=g;ctx.fillRect(i,60-h/2,2,h)}}
 drawWave();
-let viz=document.getElementById('viz'), vctx=viz.getContext('2d');
-function drawViz(){
-  requestAnimationFrame(drawViz);
-  vctx.clearRect(0,0,viz.width,viz.height);
-  let data=new Uint8Array(128); if(analyser) analyser.getByteFrequencyData(data); else for(let i=0;i<128;i++) data[i]=Math.random()*20;
-  let mode=document.getElementById('vizSel').value;
-  let cx=240, cy=60;
-  if(mode.includes('Circle')){
-    for(let i=0;i<64;i++){let a=i/64*Math.PI*2; let r=28+data[i]/2.5; vctx.strokeStyle=`hsl(${i*4},90%,65%)`; vctx.lineWidth=4; vctx.beginPath(); vctx.moveTo(cx+Math.cos(a)*28,cy+Math.sin(a)*28); vctx.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r); vctx.stroke();}
-  } else if(mode.includes('iOS')){
-    for(let i=0;i<5;i++){let h=18+data[i*8]/2.2; let x=170+i*28; let g=vctx.createLinearGradient(0,60-h,0,60+h); g.addColorStop(0,'#22d3ee'); g.addColorStop(1,'#f472b6'); vctx.fillStyle=g; vctx.beginPath(); vctx.roundRect(x,60-h/2,16,h,8); vctx.fill();}
-  } else {
-    let w=viz.width/64; for(let i=0;i<64;i++){let h=data[i]/2.2+4; let g=vctx.createLinearGradient(0,120-h,0,120); g.addColorStop(0,'#a78bfa'); g.addColorStop(1,'#22d3ee'); vctx.fillStyle=g; vctx.fillRect(i*w,120-h,w-2,h);}
-  }
-}
-drawViz();
-document.getElementById('renderBtn').onclick=async()=>{
-  if(!audioEl.src) return toast('Upload lagu dulu bung!');
-  toast('Mulai render... jangan tutup layar');
-  initAudio(); audioCtx.resume();
-  audioEl.currentTime=Number(document.getElementById('startIn').value||0); await audioEl.play();
-  let canvas=document.createElement('canvas'); canvas.width=720; canvas.height=1280;
-  if(document.getElementById('orient').value.includes('Lanskap')){canvas.width=1280; canvas.height=720}
-  let ctx=canvas.getContext('2d');
-  let stream=canvas.captureStream(30);
-  let dest=audioCtx.createMediaStreamDestination();
-  gainNode.connect(dest);
-  let combined=new MediaStream([...stream.getVideoTracks(),...dest.stream.getAudioTracks()]);
-  let rec=new MediaRecorder(combined,{mimeType:'video/webm;codecs=vp9,opus'});
-  let chunks=[]; rec.ondataavailable=e=>chunks.push(e.data);
-  rec.onstop=()=>{let b=new Blob(chunks,{type:'video/webm'}); let a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='studiomix-'+Date.now()+'.webm'; a.click(); toast('Video tersimpan ✓')};
-  rec.start();
-  let img=document.getElementById('coverImg');
-  let t0=performance.now();
-  let dur=(Number(document.getElementById('endIn').value||30)-Number(document.getElementById('startIn').value||0))*1000;
-  function frame(){
-    let p=(performance.now()-t0)/dur;
-    if(p>=1 || audioEl.paused){rec.stop(); audioEl.pause(); return}
-    let bg=document.getElementById('bgSel').value;
-    if(bg.includes('Gradient')){let g=ctx.createLinearGradient(0,0,720,1280); g.addColorStop(0,'#1e1b4b'); g.addColorStop(.5,'#831843'); g.addColorStop(1,'#0e7490'); ctx.fillStyle=g; ctx.fillRect(0,0,canvas.width,canvas.height);}
-    else {ctx.fillStyle='#07070f'; ctx.fillRect(0,0,canvas.width,canvas.height); if(img.src) ctx.drawImage(img,0,0,canvas.width,canvas.height);}
-    let s=Math.min(canvas.width,canvas.height)*0.72, x=(canvas.width-s)/2, y=canvas.height*0.08;
-    ctx.save(); ctx.shadowColor='#a78bfa'; ctx.shadowBlur=40; ctx.beginPath(); ctx.roundRect(x,y,s,s,28); ctx.clip();
-    if(img.src) ctx.drawImage(img,x,y,s,s); else {ctx.fillStyle='#312e81'; ctx.fillRect(x,y,s,s); ctx.font='80px Arial'; ctx.fillText('🎵',x+s/2-40,y+s/2)}
-    ctx.restore();
-    ctx.fillStyle='#fff'; ctx.font='bold 44px Plus Jakarta Sans, Arial'; ctx.textAlign='center';
-    ctx.fillText(document.getElementById('titleIn').value.slice(0,28),canvas.width/2,y+s+58);
-    ctx.fillStyle='#ffffffaa'; ctx.font='28px Arial'; ctx.fillText(document.getElementById('artistIn').value,canvas.width/2,y+s+98);
-    let d=new Uint8Array(128); if(analyser) analyser.getByteFrequencyData(d);
-    for(let i=0;i<48;i++){let h=d[i]/2.5+6; let bx=40+i*((canvas.width-80)/48); let g=ctx.createLinearGradient(0,canvas.height-160,0,canvas.height); g.addColorStop(0,'#22d3ee'); g.addColorStop(1,'#f472b6'); ctx.fillStyle=g; ctx.beginPath(); ctx.roundRect(bx,canvas.height-160-h,(canvas.width-80)/48-4,h,6); ctx.fill();}
-    requestAnimationFrame(frame);
-  }
-  frame();
-  setTimeout(()=>{if(rec.state!=='inactive') rec.stop()},dur+500);
-};
-</script>
-</body>
-</html>
+// visualizer kecil di samping judul - kayak punya dia
+let mini=document.getElementById('vizMini'),mctx=mini.getContext('2d');
+function drawMini(){requestAnimationFrame(drawMini);mctx.clearRect(0,0,38,22);let d=new Uint8Array(64);if(analyser)analyser.getByteFrequencyData(d);else for(let i=0;i<64;i++)d[i]=Math.random()*20;for(let i=0;i<4;i++){let h=4+d[i*10]/10;let x=4+i*9;mctx.fillStyle='#fff';mctx.beginPath();mctx.roundRect(x,22-h,5,h,3);mctx.fill()}}
+drawMini();
+// filter knob bisa digeser
+let knob=document.getElementById('filterKnob'),drag=false;
+knob.onpointerdown=()=>drag=true;window.onpointerup=()=>drag=false;
+window.onpointermove=e=>{if(!drag)return;let r=knob.parentElement.getBoundingClientRect();let x=Math.max(10,Math.min(r.width-36,e.clientX-r.left));knob.style.left=x+'px'};
+document.getElementById('renderBtn').onclick=()=>toast('Render jalan... (versi demo, upload dulu lagunya bung!)');
+</script></body></html>
