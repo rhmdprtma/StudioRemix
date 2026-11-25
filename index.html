@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>StudioRemix - by Tama-ID</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;-webkit-tap-highlight-color:transparent}
 body{background:#080810;color:#fff;min-height:100vh}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(500px 350px at 0% 0%,#7c3aed66,transparent),radial-gradient(500px 350px at 100% 20%,#ec489966,transparent),radial-gradient(500px 400px at 50% 100%,#06b6d466,transparent)}
 .app{position:relative;z-index:1;max-width:440px;margin:auto;padding:14px 14px 80px}
@@ -31,39 +31,49 @@ h3 span{opacity:.6;font-weight:400}
 .filterHead{display:flex;justify-content:space-between;font-size:11px;color:#94a3b8;margin-bottom:8px}
 .filterTrack{position:relative;height:34px;background:#0b0b18;border:1px solid #ffffff20;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#94a3b8}
 .filterKnob{position:absolute;top:3px;left:50%;transform:translateX(-50%);width:26px;height:26px;background:#fff;border-radius:7px;box-shadow:0 4px 12px #000;cursor:grab}
-/* === PLAYER IPHONE - UDAH DI TENGAH === */
+
+/* === IPHONE BENERAN - KACA / FROSTED GLASS === */
 .iphone{
-  position:relative;overflow:hidden;border-radius:28px;
-  aspect-ratio:9/15.5;max-height:620px;
-  width:100%;max-width:360px;margin:0 auto;
-  background:#0c0c1a;display:flex;flex-direction:column;
-  padding:14px 14px 12px;box-shadow:0 25px 60px #000a;
-  border:1px solid #ffffff22;
+  position:relative;overflow:hidden;border-radius:32px;
+  width:100%;max-width:340px;margin:0 auto;
+  aspect-ratio:9/14.2;max-height:600px;
+  background:rgba(255,255,255,0.14);
+  backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.28);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 30px 70px rgba(0,0,0,.55);
+  display:flex;flex-direction:column;padding:16px 16px 14px;
 }
-.iphoneBg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(28px) brightness(.6);transform:scale(1.3)}
+.iphoneBg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(35px) brightness(.55) saturate(1.3);transform:scale(1.1);z-index:0}
+.iphone > *{position:relative;z-index:2}
 .cover{
-  position:relative;z-index:2;border-radius:18px;overflow:hidden;aspect-ratio:1/1;
+  border-radius:14px;overflow:hidden;aspect-ratio:1/1;
   background:linear-gradient(135deg,#312e81,#be185d);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 15px 35px #000a;cursor:pointer;flex-shrink:0;
+  box-shadow:0 12px 28px rgba(0,0,0,.35);cursor:pointer;flex-shrink:0;
 }
 .cover img{width:100%;height:100%;object-fit:cover;display:none}
-.cover .ph{font-size:54px;text-align:center}.cover .ph small{display:block;font-size:11px;margin-top:6px;opacity:.8}
-.playerInfo{position:relative;z-index:2;display:flex;align-items:center;gap:10px;margin-top:14px;padding:0 2px}
+.cover .ph{font-size:52px;text-align:center}.cover .ph small{display:block;font-size:12px;margin-top:8px;opacity:.85;font-family:'Plus Jakarta Sans',sans-serif}
+.playerInfo{display:flex;align-items:center;gap:10px;margin-top:14px;padding:0 2px}
 .playerInfo .txt{flex:1;min-width:0}
-.playerInfo .title{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.playerInfo .artist{font-size:13px;color:#ffffffaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
-.vizMini{width:38px;height:22px;flex-shrink:0}
-.timeRow{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:#ffffffcc;margin:12px 2px 0;position:relative;z-index:2}
-.progress{height:4px;background:#ffffff2b;border-radius:99px;margin:6px 2px 0;position:relative;z-index:2;overflow:hidden}
+.playerInfo .title{font-size:15.5px;font-weight:700;letter-spacing:-.1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff}
+.playerInfo .artist{font-size:13px;font-weight:500;color:rgba(255,255,255,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px;text-transform:uppercase;letter-spacing:.2px}
+.vizMini{width:36px;height:22px;flex-shrink:0;opacity:.95}
+.timeRow{display:flex;justify-content:space-between;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.70);margin:10px 2px 0}
+.progress{height:4px;background:rgba(255,255,255,.22);border-radius:99px;margin:5px 2px 0;overflow:hidden}
 #prog{height:100%;width:0%;background:#fff;border-radius:99px}
-/* TOMBOL UDAH RAPET DI TENGAH */
-.iphoneControls{display:flex;align-items:center;justify-content:center;gap:30px;padding:14px 0 0;position:relative;z-index:2}
-.iphoneControls button{background:transparent;border:0;color:#fff;cursor:pointer;flex-shrink:0}
-.star{font-size:24px}.midBtn{font-size:28px}.playBtn{font-size:38px;line-height:1}
-.volRow{display:flex;align-items:center;gap:10px;padding:12px 6px 0;position:relative;z-index:2;max-width:340px;margin:0 auto;width:100%}
-.volRow input{flex:1;accent-color:#fff}
-.pillRow{display:flex;justify-content:center;margin-top:14px;position:relative;z-index:2}
-.pill{background:rgba(0,0,0,.55);border:1px solid #ffffff22;padding:8px 18px;border-radius:99px;font-size:12px;font-weight:600;backdrop-filter:blur(10px);color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+/* TOMBOL IPHONE BENERAN: 10 DETIK - PAUSE - 10 DETIK */
+.iphoneControls{display:flex;align-items:center;justify-content:center;gap:36px;padding:14px 0 2px}
+.iphoneControls button{background:transparent;border:0;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.skip10{width:38px;height:38px;border:2px solid #fff;border-radius:50%;font-size:11px;font-weight:800;position:relative;letter-spacing:-.5px}
+.skip10::after{content:'↺';position:absolute;top:-9px;font-size:9px}
+.skip10.fwd::after{content:'↻'}
+.pauseBtn{font-size:34px;font-weight:700;letter-spacing:-2px;line-height:1}
+.volRow{display:flex;align-items:center;gap:10px;padding:14px 2px 0;max-width:320px;margin:0 auto;width:100%}
+.volRow span{font-size:14px;opacity:.85}
+.volRow input{flex:1;-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.35);outline:none}
+.volRow input::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.4);cursor:pointer}
+.volRow input::-moz-range-thumb{width:22px;height:22px;background:#fff;border:none;border-radius:50%}
+.pillRow{display:flex;justify-content:center;margin-top:16px}
+.pill{background:rgba(255,255,255,.16);border:0;padding:7px 16px;border-radius:99px;font-size:12.5px;font-weight:500;color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(10px)}
 .row{display:flex;justify-content:space-between;align-items:center;padding:12px 2px;border-bottom:1px solid #ffffff10;font-size:13px;gap:10px}
 .row label{color:#cbd5e1;flex-shrink:0}
 select,input[type=number]{background:#0f0f1e;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:9px 10px;min-width:135px;text-align:right;outline:none}
@@ -104,26 +114,25 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
   <input type="file" id="imgIn" accept="image/*" hidden>
   <div class="playerInfo">
     <div class="txt">
-      <div class="title" id="titleView">JUDUL LAGU - REMIX</div>
-      <div class="artist" id="artistView">Rahmad Pratama</div>
+      <div class="title" id="titleView">DJ ONTHEMIX SAKIT SUNGGUH SAKIT</div>
+      <div class="artist" id="artistView">DJ RAHMAD PRATAMA</div>
     </div>
-    <canvas class="vizMini" id="vizMini" width="38" height="22"></canvas>
+    <canvas class="vizMini" id="vizMini" width="36" height="22"></canvas>
   </div>
   <div class="timeRow"><span id="cur">0:00</span><span id="dur">-0:39</span></div>
   <div class="progress"><div id="prog"></div></div>
   <div class="iphoneControls">
-    <button class="star" id="favBtn" onclick="this.textContent=this.textContent=='☆'?'★':'☆'">☆</button>
-    <button class="midBtn" id="prevBtn">⏮</button>
-    <button class="playBtn" id="playBtn">▶</button>
-    <button class="midBtn" id="nextBtn">⏭</button>
+    <button class="skip10" id="prevBtn">10</button>
+    <button class="pauseBtn" id="playBtn">❚❚</button>
+    <button class="skip10 fwd" id="nextBtn">10</button>
   </div>
   <div class="volRow"><span>🔈</span><input type="range" id="vol" min="0" max="100" value="90"><span>🔊</span></div>
-  <div class="pillRow"><button class="pill" onclick="toast('AirPlay - Cari perangkat...')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M5 12l7-7 7 7"/><rect x="2" y="14" width="20" height="6" rx="2"/></svg> AirPlay</button></div>
+  <div class="pillRow"><button class="pill" onclick="toast('AirPlay - Cari perangkat...')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l7-7 7 7"/><rect x="2" y="14" width="20" height="6" rx="2"/></svg> AirPlay</button></div>
 </div>
 
 <div class="card" style="margin-top:14px">
-  <div class="row"><label>Judul Lagu</label><input type="text" id="titleIn" value="Judul Lagu - Remix"></div>
-  <div class="row"><label>Nama Artist</label><input type="text" id="artistIn" value="@mctama"></div>
+  <div class="row"><label>Judul Lagu</label><input type="text" id="titleIn" value="DJ Rahmad Pratama - Sakit Sungguh Sakit"></div>
+  <div class="row"><label>Nama Artist</label><input type="text" id="artistIn" value="DJ RAHMAD PRATAMA"></div>
   <canvas id="wave"></canvas>
   <div class="flex" style="margin-top:10px"><button class="chip" onclick="playPart()">▶ Putar Bagian</button><button class="chip" onclick="setStart()">Mulai di sini</button><button class="chip" onclick="setEnd()">Akhir di sini</button></div>
   <div class="row"><label>Mulai (detik)</label><input type="number" id="startIn" value="0"></div>
@@ -150,7 +159,7 @@ canvas#wave{width:100%;height:60px;background:#00000050;border-radius:12px;margi
   <div class="row"><label>Kecepatan Putar 8D</label><select><option>Sedang (10 dtk)</option><option>Lambat</option><option>Cepat</option></select></div>
   <div class="row"><label>Arah Putar</label><select><option>Searah jarum jam</option><option>Berlawanan</option></select></div>
 </div>
-<p style="text-align:center;font-size:11px;color:#64748b;margin-top:18px">StudioRemix • by Tama-ID </p>
+<p style="text-align:center;font-size:11px;color:#64748b;margin-top:18px">StudioRemix • by Tama-ID</p>
 </div>
 <div class="toast" id="toast"></div>
 <script>
@@ -165,9 +174,9 @@ function resetEQ(){document.querySelectorAll('#eq input').forEach((e,i)=>{e.valu
 function setSpeed(){audioEl.playbackRate=parseFloat(document.getElementById('speed').value)}
 document.getElementById('audioIn').onchange=e=>{let f=e.target.files[0];if(!f)return;audioEl.src=URL.createObjectURL(f);initAudio();document.getElementById('titleIn').value=f.name.replace('.mp3','');syncTitle();audioEl.onloadedmetadata=()=>{document.getElementById('dur').textContent='-'+fmt(audioEl.duration);document.getElementById('endIn').value=Math.min(30,Math.floor(audioEl.duration));drawWave()};toast('Lagu dimuat: '+f.name)};
 document.getElementById('imgIn').onchange=e=>{let f=e.target.files[0];if(!f)return;let u=URL.createObjectURL(f);let img=document.getElementById('coverImg');img.src=u;img.style.display='block';document.getElementById('ph').style.display='none';document.getElementById('bgBlur').style.backgroundImage=`url(${u})`;toast('Foto dimuat ✓')};
-function syncTitle(){document.getElementById('titleView').textContent=document.getElementById('titleIn').value.toUpperCase();document.getElementById('artistView').textContent=document.getElementById('artistIn').value}
+function syncTitle(){document.getElementById('titleView').textContent=document.getElementById('titleIn').value;document.getElementById('artistView').textContent=document.getElementById('artistIn').value.toUpperCase()}
 document.getElementById('titleIn').oninput=syncTitle;document.getElementById('artistIn').oninput=syncTitle;
-document.getElementById('playBtn').onclick=()=>{initAudio();audioCtx.resume();if(audioEl.paused){audioEl.play();document.getElementById('playBtn').textContent='⏸'}else{audioEl.pause();document.getElementById('playBtn').textContent='▶'}};
+document.getElementById('playBtn').onclick=()=>{initAudio();audioCtx.resume();if(audioEl.paused){audioEl.play();document.getElementById('playBtn').textContent='❚❚'}else{audioEl.pause();document.getElementById('playBtn').textContent='▶'}};
 document.getElementById('prevBtn').onclick=()=>audioEl.currentTime=Math.max(0,audioEl.currentTime-10);
 document.getElementById('nextBtn').onclick=()=>audioEl.currentTime=Math.min(audioEl.duration,audioEl.currentTime+10);
 document.getElementById('vol').oninput=e=>{if(gainNode)gainNode.gain.value=e.target.value/100};
@@ -175,11 +184,11 @@ audioEl.ontimeupdate=()=>{document.getElementById('cur').textContent=fmt(audioEl
 function fmt(s){if(!s)return '0:00';s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
 function setStart(){document.getElementById('startIn').value=Math.floor(audioEl.currentTime)}
 function setEnd(){document.getElementById('endIn').value=Math.floor(audioEl.currentTime)}
-function playPart(){audioEl.currentTime=Number(document.getElementById('startIn').value||0);audioEl.play();document.getElementById('playBtn').textContent='⏸'}
+function playPart(){audioEl.currentTime=Number(document.getElementById('startIn').value||0);audioEl.play();document.getElementById('playBtn').textContent='❚❚'}
 function drawWave(){let c=document.getElementById('wave'),ctx=c.getContext('2d');c.width=c.clientWidth*2;c.height=120;ctx.fillStyle='#0f0f1e';ctx.fillRect(0,0,c.width,c.height);for(let i=0;i<c.width;i+=4){let h=Math.random()*80+10;let g=ctx.createLinearGradient(0,0,0,c.height);g.addColorStop(0,'#22d3ee');g.addColorStop(1,'#f472b6');ctx.fillStyle=g;ctx.fillRect(i,60-h/2,2,h)}}
 drawWave();
 let mini=document.getElementById('vizMini'),mctx=mini.getContext('2d');
-function drawMini(){requestAnimationFrame(drawMini);mctx.clearRect(0,0,38,22);let d=new Uint8Array(64);if(analyser)analyser.getByteFrequencyData(d);else for(let i=0;i<64;i++)d[i]=Math.random()*20;for(let i=0;i<4;i++){let h=4+d[i*10]/10;let x=4+i*9;mctx.fillStyle='#fff';mctx.beginPath();mctx.roundRect(x,22-h,5,h,3);mctx.fill()}}
+function drawMini(){requestAnimationFrame(drawMini);mctx.clearRect(0,0,36,22);let d=new Uint8Array(64);if(analyser)analyser.getByteFrequencyData(d);else for(let i=0;i<64;i++)d[i]=Math.random()*25;for(let i=0;i<4;i++){let h=4+d[i*10]/10;let x=3+i*9;mctx.fillStyle='#fff';mctx.beginPath();mctx.roundRect(x,22-h,5,h,3);mctx.fill()}}
 drawMini();
 let knob=document.getElementById('filterKnob'),drag=false;
 knob.onpointerdown=()=>drag=true;window.onpointerup=()=>drag=false;
